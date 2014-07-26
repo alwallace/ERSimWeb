@@ -1,0 +1,31 @@
+cbc
+bmp
+cmp
+lft
+bilirubin
+urinalysis
+sputum culture
+urine culture
+blood culture
+wound culture
+
+head xray
+chest xray
+abdominal xray
+pelvis xray
+kub
+extremity xray
+foot xray
+hand xray
+head ct
+chest ct
+abdominal ct
+head mri
+chest mri
+abdominal mri
+echocardiogram
+liver ultrasound
+renal ultrasound
+bladder ultrasound
+transvaginal ultrasound
+deep vein ultrasound

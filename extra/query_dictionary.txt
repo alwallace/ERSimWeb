@@ -1,0 +1,219 @@
+hello
+cc
+hpi
+
+pain
+onset
+position
+quality
+radiation
+severity
+timing
+alleviating
+aggravating
+duration
+associated
+
+pmhx
+hospitalizations
+surgeries
+allergies
+fmhx
+shx
+tobacco
+alcohol
+drugs
+sex
+
+ROS
+weight loss
+night sweats
+fatigue
+malaise
+lethargy
+sleeping
+appetite
+fever
+itch
+rash
+trauma
+masses
+falls
+
+visual changes
+headache
+double vision
+scotoma
+floaters
+
+runny nose
+epistaxis
+tinnitus
+gingival bleeding
+toothache
+sore throat
+odynophagia
+
+chest pain
+sob
+doe
+pnd
+orthopnea
+edema
+palpitations
+faintness
+loc
+claudication
+
+cough
+sputum
+wheezing
+hemoptysis
+
+dysphagia
+indigestion
+bloating
+cramping
+anorexia
+nausea
+vomiting
+diarrhea
+constipation
+obstipation
+hematochezia
+melena
+tenesmus
+
+incontinence
+dysuria
+hematuria
+nocturia
+polyuria
+hesitancy
+dribbling
+penile discharge
+vaginal discharge
+menses frequency
+menses regularity
+menses quality
+menses clots
+menses duration
+dysmenorrhea
+lmp
+gpa
+menarche
+menopause
+contraception
+
+stiffness
+joint swelling
+rom
+crepitus
+arthritis
+
+pruritus
+stria
+nodules
+tumors
+eczema
+breast discharge
+
+sight
+smell
+hearing
+taste
+seizures
+faints
+headache
+parasthesia
+numbness
+weakness
+balance
+speech
+depression
+anxiety
+concentration
+paranoia
+anhedonia
+lack of energy
+mania
+personality
+financial binges
+hallucinations
+judgement
+affect
+si
+
+temperature intolerance
+mood swings
+diaphoresis
+thin hair
+dry skin
+polydipsia
+polyuria
+polyphagia
+skin color
+erection
+sexual arousal
+purpura
+petechia
+
+general
+alert
+orientation
+gcs
+
+head examine
+pupils
+eom
+fundi
+vision
+external canal
+tympanic membrane
+hearing
+nasal discharge
+oral cavity
+neck examine
+
+chest examine
+cardiac auscultation
+lld
+jvd
+pomi
+carotid auscultation
+capillary refill
+
+back examine
+lungs auscultation
+lungs percussion
+lungs fremitis
+lungs egophony
+lungs expansion
+
+abdomen examine
+bowel sounds
+abdomen palpation
+guarding
+rebound
+
+rom spine
+rom extremities
+joint erythema
+joint tenderness
+strength
+gait
+
+examine extremities
+edema
+peripheral pulses
+
+CN 2-12
+sensation
+reflexes
+ftn
+ram
+heel to shin
+heel walk
+toe walk
+rhomberg
+

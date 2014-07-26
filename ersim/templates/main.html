@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<title>Emergency Room Simulator</title>
+	<link rel = "styleSheet" href = "{{ url_for('static', filename='main.css') }}" type = "text/css" />
+<body>
+	<nav id = 'topMenu'>
+		<ul id = 'menuItems'> 
+			<li>
+				<a href="#">Patient List</a>
+				<ul class = 'patientList'>
+					<li>
+						<a href="#">Patient 1</a>
+					</li>
+					<li>
+						<a href="#">Patient 2</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" id = 'command'>Command</a>
+			</li>
+			<li>
+				<a href="#">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	<div class = 'infoPane'>
+		<div class = 'info'>
+			<textarea readonly id = "infoText"></textarea>
+		</div>
+		<div class = 'commandBox'>
+			<p id = "commandLabel" >Command:</p>
+			<input type = "text" name = "command" id = "commandText">
+			<input type = "submit" value = "Submit" id = "submitButton">
+		</div>
+	</div>
+	<div class = 'mediaPane'>
+		<h1>Media</h1>
+	</div>
+	<div class = 'commandList'>
+		<h1>Command List</h1>
+	</div>
+</body>
+</html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	$(function() {$("#commandText").focus();});
+
+	$(document).ready(function() {
+		$("#submitButton").click(function() {
+			$.post("response", 
+				{ trigger:$("#commandText").val() }, 
+				function(data,status) { 
+					$("#infoText").val($("#infoText").val() + 
+						"\n>> " + $("#commandText").val() +
+						"\n" + data);
+					$("#commandText").val("");
+				}
+			);
+		});
+	});
+
+	$("#commandText").keyup(function(event) {
+		if (event.keyCode == 13) {
+			$("#submitButton").click();
+		}
+	});
+</script>
