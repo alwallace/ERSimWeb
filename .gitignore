@@ -1,1 +1,3 @@
 ersim/venv
+
+*.sqlite-journal

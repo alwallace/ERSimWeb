@@ -53,8 +53,8 @@
 				{ trigger:$("#commandText").val() }, 
 				function(data,status) { 
 					$("#infoText").val($("#infoText").val() + 
-						"\n>> " + $("#commandText").val() +
-						"\n" + data);
+						"> " + $("#commandText").val() +
+						"\n" + data + "\n");
 					$("#commandText").val("");
 				}
 			);
