@@ -34,7 +34,7 @@
 			<input type = "submit" value = "Submit" id = "submitButton">
 		</div>
 	</div>
-	<div class = 'mediaPane'>
+	<div class = 'mediaPane' id = 'mediaPane'>
 		<h1>Media</h1>
 	</div>
 	<div class = 'commandList'>
@@ -52,12 +52,20 @@
 			$.post("response", 
 				{ trigger:$("#commandText").val() }, 
 				function(data,status) { 
+					var obj = JSON.parse(data)
+
 					$("#infoText").val($("#infoText").val() + 
 						"> " + $("#commandText").val() +
-						"\n" + data + "\n");
+						"\n" + obj.text + "\n");
 					$("#commandText").val("");
+					$("#infoText").scrollTop($("#infoText")[0].scrollHeight);
+
+					if (obj.media != "") {
+						$("#mediaPane").append('<a href="' + obj.media + '" target="_blank"><img width="150" height="150" border="0" src="' + obj.media + '" /></a><br/>')
+					}
 				}
 			);
+
 		});
 	});
 
