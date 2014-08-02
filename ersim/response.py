@@ -1,5 +1,7 @@
 import sqlite3
 import json
+from flask import g
+from ersim import query_db, commit_db
 
 def generateResponse(patientID, triggerValue):
 	responseText = "** Please ask a question (history, physical exam, etc.) with '?' [ex: 'pain?' will ask the patient if they have pain] or perform an action (medications, lab, imaging, etc.) with '.' [ex: '.cbc' will place an order for a CBC] **"
@@ -8,47 +10,33 @@ def generateResponse(patientID, triggerValue):
 
 	# if its a request for response (ends with ?)
 	if triggerValue.endswith('?'):
-		conn = sqlite3.connect('extra/test.sqlite')
-		c = conn.cursor()
-		c.execute('SELECT response, media_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger=?', (patientID, triggerValue[:-1]))
-		result = c.fetchone()
+		result = query_db('SELECT response, media_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger=?', (patientID, triggerValue[:-1]), True)
 
-		if result == None:
+		if result is None:
 			responseText = "I do not want to answer that."
 		else:
 			responseText = result[0]
 
-			c.execute('SELECT file FROM media WHERE media.id=?', (result[1],))
-			result = c.fetchone()
-			if result != None:
+			result = query_db('SELECT file FROM media WHERE media.id=?', (result[1],), True)
+			if result is not None:
 				responseMedia = result[0]
-
-		conn.close()
 
 	# if its a request to perform an action (starts with .)
 	elif triggerValue.startswith('.'):
-		conn = sqlite3.connect('extra/test.sqlite')
-		c = conn.cursor()
-
-		# Check to see if that is a valid action
-		c.execute('SELECT id FROM actions WHERE name=?', (triggerValue[1:],))
-		tempActionID = c.fetchone()
-		if tempActionID != None:
+		# check if it is a valid action
+		tempActionID = query_db('SELECT id FROM actions WHERE name=?', (triggerValue[1:],), True)
+		if tempActionID is not None:
 			tempActionID = tempActionID[0]
 
 			# check to see if the user already did the action so we don't do it again
-			c.execute('SELECT user_action_id FROM user_actions WHERE user_id=? AND action_id=? and patient_id=?', (1, tempActionID, 1))
-			tempUserAction = c.fetchone()
-			if tempUserAction == None:
-				c.execute('INSERT INTO user_actions (user_id, action_id, patient_id, timestamp) VALUES (?,?,?,CURRENT_TIMESTAMP)', (1, tempActionID, 1))
-				conn.commit()
+			tempUserAction = query_db('SELECT user_action_id FROM user_actions WHERE user_id=? AND action_id=? and patient_id=?', (1, tempActionID, 1), True)
+			if tempUserAction is None:
+				commit_db('INSERT INTO user_actions (user_id, action_id, patient_id, timestamp) VALUES (?,?,?,CURRENT_TIMESTAMP)', (1, tempActionID, 1))
 				responseText = "* Done. *"
 			else:
 				responseText = "* You already did that! *"
 		else:
 			responseText = "* Could not perform that action, not available. *"
-
-		conn.close()
 
 	response = {"text":responseText, "media":responseMedia}
 
