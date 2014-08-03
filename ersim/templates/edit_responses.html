@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<title>Edit Responses</title>
+
+	<div class="triggerPane">
+		<table style="width:300px">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>trigger</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr id='row1' class='clickableRow'>
+			<td class='triggerID'>1</td>
+			<td>baller</td>
+			</tr>
+			<tr id='row2' class='clickableRow'>
+			<td class='triggerID'>2</td>
+			<td>boy</td>
+			</tr>
+			<tr id='row3' class='clickableRow'>
+			<td class='triggerID'>3</td>
+			<td>sucker</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="responsePane">
+		<table style="width:300px">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>response</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+
+		<table style="width:300px">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>trigger</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<input type = "submit" value = "add" id = "addButton">
+		<input type = "submit" value = "remove" id = "removeButton">
+		<input type = "submit" value = "Save" id = "saveButton">
+	</div>
+</html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function($) {
+	      $(".clickableRow").click(function() {
+	      		$(".clickableRow").attr('bgcolor', 'white')
+	            $(this).attr('bgcolor', 'grey')
+	            var selectedID = $(this).find('td.triggerID').html()
+	      });
+	});
+</script>
