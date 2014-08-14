@@ -3,7 +3,7 @@
 	<title>Edit Responses</title>
 
 	<div class="triggerPane">
-		<table style="width:300px">
+		<table id="triggersTable" style="width:300px; float:left;">
 			<thead>
 				<tr>
 					<th>id</th>
@@ -11,23 +11,12 @@
 				</tr>
 			</thead>
 			<tbody>
-			<tr id='row1' class='clickableRow'>
-			<td class='triggerID'>1</td>
-			<td>baller</td>
-			</tr>
-			<tr id='row2' class='clickableRow'>
-			<td class='triggerID'>2</td>
-			<td>boy</td>
-			</tr>
-			<tr id='row3' class='clickableRow'>
-			<td class='triggerID'>3</td>
-			<td>sucker</td>
-			</tr>
+
 			</tbody>
 		</table>
 	</div>
 	<div class="responsePane">
-		<table style="width:300px">
+		<table id="possibleResponsesTable" style="width:300px; float:left;">
 			<thead>
 				<tr>
 					<th>id</th>
@@ -39,7 +28,7 @@
 			</tbody>
 		</table>
 
-		<table style="width:300px">
+		<table id="chosenResponsesTable" style="width:300px; float:left;">
 			<thead>
 				<tr>
 					<th>id</th>
@@ -47,6 +36,7 @@
 				</tr>
 			</thead>
 			<tbody>
+
 			</tbody>
 		</table>
 		<input type = "submit" value = "add" id = "addButton">
@@ -57,11 +47,57 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+	var selectedTriggerID = -1;
+
 	$(document).ready(function($) {
-	      $(".clickableRow").click(function() {
-	      		$(".clickableRow").attr('bgcolor', 'white')
-	            $(this).attr('bgcolor', 'grey')
-	            var selectedID = $(this).find('td.triggerID').html()
-	      });
+		$.get("edit/getTriggerList", 
+			function(data,status) { 
+				var obj = JSON.parse(data);
+
+				$.each(obj, function(i, item) {
+					$('#triggersTable > tbody:last').append("<tr id='trig" + item.id + "' class='clickableRowTrigger' style='cursor:pointer;'><td class='triggerID'>" + item.id + "</td><td>" + item.trigger + "</td></tr>")
+				});
+
+				$(".clickableRowTrigger").click(function() {
+			    	$(".clickableRowTrigger").attr('bgcolor', 'white');
+			        $(this).attr('bgcolor', 'grey');
+			        window.selectedTriggerID = $(this).find('td.triggerID').html();
+			        
+			        $.post("edit/getResponseListFor", { triggerID:$(this).find('td.triggerID').html() }, function(data,status) {
+			        	var obj = JSON.parse(data);
+
+			        	$("#possibleResponsesTable tbody > tr").remove();
+			        	$.each(obj, function(i, item) {
+							$('#possibleResponsesTable > tbody:last').append("<tr id='pres" + item.id + "' class='clickableRowPResponse' style='cursor:pointer;'><td class='responseID'>" + item.id + "</td><td>" + item.response + "</td></tr>")
+						});
+
+			        	$(".clickableRowPResponse").click(function() {
+				        	$.post("edit/addResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {
+				        		var obj = JSON.parse(data);
+
+				        		$('#chosenResponsesTable > tbody:last').append("<tr id='cres" + obj.id + "' class='clickableRowPResponse' style='cursor:pointer;'><td class='responseID'>" + obj.id + "</td><td>" + obj.response + "</td></tr>");
+							});
+					    });
+
+			        });
+
+			        $.post("edit/getResponseListForDiagnosis", { triggerID:$(this).find('td.triggerID').html(), diagnosisID:"1" }, function(data,status) {
+			        	var obj = JSON.parse(data);
+
+			        	$("#chosenResponsesTable tbody > tr").remove();
+			        	$.each(obj, function(i, item) {
+							$('#chosenResponsesTable > tbody:last').append("<tr id='cres" + item.id + "' class='clickableRowCResponse' style='cursor:pointer;'><td class='responseID'>" + item.id + "</td><td>" + item.response + "</td></tr>")
+						});
+
+						$(".clickableRowCResponse").click(function() {
+							$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {
+								this.remove();
+							});
+						});
+					});
+			    });
+			}
+		);
+		
 	});
 </script>
