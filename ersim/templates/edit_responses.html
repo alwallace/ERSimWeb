@@ -7,7 +7,7 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>trigger</th>
+					<th>Trigger Questions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -20,7 +20,7 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>response</th>
+					<th>Possible Responses</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,7 +32,7 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>trigger</th>
+					<th>Selected Responses</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -73,9 +73,18 @@
 
 			        	$(".clickableRowPResponse").click(function() {
 				        	$.post("edit/addResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {
+
 				        		var obj = JSON.parse(data);
 
-				        		$('#chosenResponsesTable > tbody:last').append("<tr id='cres" + obj.id + "' class='clickableRowPResponse' style='cursor:pointer;'><td class='responseID'>" + obj.id + "</td><td>" + obj.response + "</td></tr>");
+				        		if (obj.length > 0) {
+				        			obj = obj[0];
+					        		$('#chosenResponsesTable > tbody:last').append("<tr id='cres" + obj.id + "' class='clickableRowCResponse' style='cursor:pointer;'><td class='responseID'>" + obj.id + "</td><td>" + obj.response + "</td></tr>");
+
+					        		$(".clickableRowCResponse").click(function() {
+										$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {});
+										this.remove();
+									});
+					        	}
 							});
 					    });
 
@@ -90,9 +99,8 @@
 						});
 
 						$(".clickableRowCResponse").click(function() {
-							$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {
-								this.remove();
-							});
+							$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) { });
+							this.remove();
 						});
 					});
 			    });

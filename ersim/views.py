@@ -77,9 +77,13 @@ def getResponseListForDiagnosisRoute():
 @app.route('/edit/addResponseForDiagnosis', methods=['POST'])
 @login_required
 def addResponseForDiagnosis():
-	return edit.addResponseForDiagnosis(request.form['triggerID', request.form['diagnosisID'], request.form['responseID'])
+	return edit.addResponseForDiagnosis(request.form['triggerID'], request.form['diagnosisID'], request.form['responseID'])
 
 @app.route('/edit/removeResponseForDiagnosis', methods=['POST'])
 @login_required
-def addResponseForDiagnosis():
-	return edit.addResponseForDiagnosis(request.form['triggerID', request.form['diagnosisID'], request.form['responseID'])
+def removeResponseForDiagnosis():
+	return edit.removeResponseForDiagnosis(request.form['triggerID'], request.form['diagnosisID'], request.form['responseID'])
+
+@app.route('/edit/generatePatient', methods=['POST'])
+def generatePatient():
+	return edit.generatePatient(request.form['diagnosisID'])
