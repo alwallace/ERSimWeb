@@ -13,8 +13,6 @@ from ersim import user
 def indexRoute():
 	return render_template("index.html")
 
-
-
 @app.route('/play')
 @login_required
 def playRoute():
@@ -23,10 +21,19 @@ def playRoute():
 @app.route('/response', methods=['GET', 'POST'])
 def responseRoute():
 	if request.method == 'POST':
+		patientID = request.form['patientID']
 		triggerValue = request.form['trigger']
-		return response.generateResponse(1, triggerValue)
+		return response.generateResponse(patientID, triggerValue)
 	else:
 		return 'you failed to POST correctly!'
+
+@app.route('/getDiagnosisList', methods=['GET', 'POST'])
+def getDiagnosisListRoute():
+	return response.getDiagnosisList()
+
+@app.route('/getPatientListForDiagnosis', methods=['POST'])
+def getPatientListForDiagnosisRoute():
+	return response.getPatientListForDiagnosis(request.form['diagnosisID'])
 
 @app.route('/login', methods=['GET', 'POST'])
 def loginRoute():
@@ -84,6 +91,21 @@ def addResponseForDiagnosis():
 def removeResponseForDiagnosis():
 	return edit.removeResponseForDiagnosis(request.form['triggerID'], request.form['diagnosisID'], request.form['responseID'])
 
-@app.route('/edit/generatePatient', methods=['POST'])
-def generatePatient():
-	return edit.generatePatient(request.form['diagnosisID'])
+@app.route('/edit/addResponseForTrigger', methods=['POST'])
+@login_required
+def addResponseForTrigger():
+	return edit.addResponseForTrigger(request.form['triggerID'], request.form['responseValue'])
+
+@app.route('/edit/getResponsesForPatient', methods=['POST'])
+@login_required
+def getResponsesForPatientRoute():
+	return edit.getResponsesForPatient(request.form['patientID'])
+
+@app.route('/view/patient', methods=['GET'])
+@login_required
+def viewPatientRoute():
+	return render_template("viewPatient.html")
+
+@app.route('/edit/generatePatientForDiagnosis', methods=['POST'])
+def generatePatientForDiagnosisRoute():
+	return edit.generatePatientForDiagnosis(request.form['diagnosisID'])

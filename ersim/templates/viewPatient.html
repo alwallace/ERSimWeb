@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+	<div class="PatientPane">
+		<table id="patientTable" style="width:600px; float:left;">
+			<thead>
+				<tr>
+					<th>Trigger ID</th>
+					<th>Trigger</th>
+					<th>Response ID</th>
+					<th>Response</th>
+					<th>Media ID</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+
+	$(document).ready(function($) {
+		$.post("/edit/getResponsesForPatient", { patientID:getParameterByName("patientID") }, 
+			function(data,status) { 
+				var obj = JSON.parse(data);
+
+				$.each(obj, function(i, item) {
+					$('#patientTable > tbody:last').append("<tr><td>" + item.trigger_id + "</td><td>" + item.trigger + "</td><td>" + item.response_id + "</td><td>" + item.response + "</td><td>" + item.media_id + "</td></tr>")
+				});
+			}
+		);
+	});
+
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+</script>

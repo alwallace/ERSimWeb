@@ -50,7 +50,7 @@
 	$(document).ready(function() {
 		$("#submitButton").click(function() {
 			$.post("response", 
-				{ trigger:$("#commandText").val() }, 
+				{ trigger:$("#commandText").val(), patientID:getParameterByName("patientID")}, 
 				function(data,status) { 
 					var obj = JSON.parse(data)
 
@@ -74,4 +74,11 @@
 			$("#submitButton").click();
 		}
 	});
+
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 </script>

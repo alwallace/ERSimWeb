@@ -43,6 +43,9 @@ def commit_db(query, args=()):
     cur = conn.execute(query, args)
     conn.commit()
 
+def lastid_db():
+    return query_db("SELECT last_insert_rowid()", (), True)[0]
+
 @app.teardown_appcontext
 def close_db(error):
     if hasattr(g, 'sqlite_db'):

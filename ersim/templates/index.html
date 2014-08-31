@@ -3,10 +3,110 @@
 <body>
 	Index
 	<br>
-	<a href="/play">Play</a>
-	<br>
-	<a href="/edit">Edit</a>
-	<br>
 	<a href="/logout">Logout</a>
+	<input type = "submit" value = "play" id = "playButton">
+	<input type = "submit" value = "edit" id = "editButton">
+	<input type = "submit" value = "generate" id = "generateButton">
+	<input type = "submit" value = "view" id = "viewButton">
+
+	<div class="DiagnosisPane">
+		<table id="diagnosisTable" style="width:200px; float:left;">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Diagnosis</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+	<div class="PatientPane">
+		<table id="patientTable" style="width:200px; float:left;">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Patients</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+
+	
+
 </body>
 </html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	var selectedDiagnosisID = -1;
+	var selectedPatientID = -1;
+
+	$("#playButton").click(function() {
+		if (selectedPatientID != -1) {
+			window.location = "/play?patientID=" + selectedPatientID
+		}
+	});
+
+	$("#editButton").click(function() {
+		if (selectedDiagnosisID != -1) {
+			window.location = "/edit?diagnosisID=" + selectedDiagnosisID
+		}
+	});
+
+	$("#generateButton").click(function() {
+		if (selectedDiagnosisID != -1) {
+			$.post("/edit/generatePatientForDiagnosis", { diagnosisID:window.selectedDiagnosisID }, function (data, status) {
+				var obj = JSON.parse(data);
+			});
+			loadPatientListTable();
+		}
+	});
+
+	$("#viewButton").click(function() {
+		if (selectedPatientID != -1) {
+			window.location = "/view/patient?patientID=" + selectedPatientID
+		}
+	});
+
+	function loadPatientListTable() {
+		$.post("/getPatientListForDiagnosis", { diagnosisID:window.selectedDiagnosisID }, function(data,status) {
+        	var obj = JSON.parse(data);
+
+        	$("#patientTable tbody > tr").remove();
+        	$.each(obj, function(i, item) {
+				$('#patientTable > tbody:last').append("<tr id='patient" + item.id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + item.id + "</td><td>" + item.name + "</td></tr>")
+			});
+
+        	$(".clickableRowPatient").click(function() {
+	        	$(".clickableRowPatient").attr('bgcolor', 'white');
+	        	$(this).attr('bgcolor', 'grey');
+	        	window.selectedPatientID = $(this).find('td.patientID').html();
+		    });
+        });
+	}
+
+	$(document).ready(function($) {
+		$.post("/getDiagnosisList", {}, 
+			function(data,status) { 
+				var obj = JSON.parse(data);
+
+				$.each(obj, function(i, item) {
+					$('#diagnosisTable > tbody:last').append("<tr id='diagnosis" + item.id + "' class='clickableRowDiagnosis' style='cursor:pointer;'><td class='diagnosisID'>" + item.id + "</td><td>" + item.name + "</td></tr>")
+				});
+
+				$(".clickableRowDiagnosis").click(function() {
+			    	$(".clickableRowDiagnosis").attr('bgcolor', 'white');
+			        $(this).attr('bgcolor', 'grey');
+			        window.selectedDiagnosisID = $(this).find('td.diagnosisID').html();
+			        
+			        loadPatientListTable();
+			    });
+			}
+		);
+	});
+</script>

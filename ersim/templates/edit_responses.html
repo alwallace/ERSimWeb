@@ -40,14 +40,41 @@
 			</tbody>
 		</table>
 		<input type = "submit" value = "add" id = "addButton">
-		<input type = "submit" value = "remove" id = "removeButton">
-		<input type = "submit" value = "Save" id = "saveButton">
+		<input type = "text" name = "inputText" id = "inputText"
 	</div>
 </html>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+	var diagnosisID = getParameterByName("diagnosisID");
 	var selectedTriggerID = -1;
+
+	function addRowToPossibleResponsesTable(id, response) {
+
+	}
+
+	function setPossibleResponsesTableClickable() {
+		$(".clickableRowPResponse").click(function() {
+        	$.post("edit/addResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:window.diagnosisID }, function(data,status) {
+
+        		var obj = JSON.parse(data);
+
+        		if (obj.length > 0) {
+        			obj = obj[0];
+	        		$('#chosenResponsesTable > tbody:last').append("<tr id='cres" + obj.id + "' class='clickableRowCResponse' style='cursor:pointer;'><td class='responseID'>" + obj.id + "</td><td>" + obj.response + "</td></tr>");
+
+	        		$(".clickableRowCResponse").click(function() {
+						$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:window.diagnosisID }, function(data,status) {});
+						this.remove();
+					});
+	        	}
+			});
+	    });
+	}
+
+	function addRowToChosenResponsesTable(id, response) {
+
+	}
 
 	$(document).ready(function($) {
 		$.get("edit/getTriggerList", 
@@ -70,27 +97,11 @@
 			        	$.each(obj, function(i, item) {
 							$('#possibleResponsesTable > tbody:last').append("<tr id='pres" + item.id + "' class='clickableRowPResponse' style='cursor:pointer;'><td class='responseID'>" + item.id + "</td><td>" + item.response + "</td></tr>")
 						});
-
-			        	$(".clickableRowPResponse").click(function() {
-				        	$.post("edit/addResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {
-
-				        		var obj = JSON.parse(data);
-
-				        		if (obj.length > 0) {
-				        			obj = obj[0];
-					        		$('#chosenResponsesTable > tbody:last').append("<tr id='cres" + obj.id + "' class='clickableRowCResponse' style='cursor:pointer;'><td class='responseID'>" + obj.id + "</td><td>" + obj.response + "</td></tr>");
-
-					        		$(".clickableRowCResponse").click(function() {
-										$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) {});
-										this.remove();
-									});
-					        	}
-							});
-					    });
+			        	setPossibleResponsesTableClickable();
 
 			        });
 
-			        $.post("edit/getResponseListForDiagnosis", { triggerID:$(this).find('td.triggerID').html(), diagnosisID:"1" }, function(data,status) {
+			        $.post("edit/getResponseListForDiagnosis", { triggerID:$(this).find('td.triggerID').html(), diagnosisID:window.diagnosisID }, function(data,status) {
 			        	var obj = JSON.parse(data);
 
 			        	$("#chosenResponsesTable tbody > tr").remove();
@@ -99,7 +110,7 @@
 						});
 
 						$(".clickableRowCResponse").click(function() {
-							$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:"1" }, function(data,status) { });
+							$.post("edit/removeResponseForDiagnosis", { triggerID:window.selectedTriggerID, responseID:$(this).find('td.responseID').html(), diagnosisID:window.diagnosisID }, function(data,status) { });
 							this.remove();
 						});
 					});
@@ -107,5 +118,30 @@
 			}
 		);
 		
+		$("#addButton").click(function() {
+			if (selectedTriggerID != -1) {
+				$.post("edit/addResponseForTrigger", 
+					{ triggerID:selectedTriggerID, responseValue:$("#inputText").val() }, 
+					function(data,status) { 
+						var obj = JSON.parse(data)
+						obj = obj[0]
+						if (obj.id != -1) {
+							$('#possibleResponsesTable > tbody:last').append("<tr id='pres" + obj.id + "' class='clickableRowPResponse' style='cursor:pointer;'><td class='responseID'>" + obj.id + "</td><td>" + obj.response + "</td></tr>")
+
+							setPossibleResponsesTableClickable();
+						}
+					}
+				);
+			}
+
+		});
+
 	});
+
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 </script>

@@ -29,9 +29,9 @@ def generateResponse(patientID, triggerValue):
 			tempActionID = tempActionID[0]
 
 			# check to see if the user already did the action so we don't do it again
-			tempUserAction = query_db('SELECT user_action_id FROM user_actions WHERE user_id=? AND action_id=? and patient_id=?', (1, tempActionID, 1), True)
+			tempUserAction = query_db('SELECT user_action_id FROM user_actions WHERE user_id=? AND action_id=? and patient_id=?', (1, tempActionID, patientID), True)
 			if tempUserAction is None:
-				commit_db('INSERT INTO user_actions (user_id, action_id, patient_id, timestamp) VALUES (?,?,?,CURRENT_TIMESTAMP)', (1, tempActionID, 1))
+				commit_db('INSERT INTO user_actions (user_id, action_id, patient_id, timestamp) VALUES (?,?,?,CURRENT_TIMESTAMP)', (1, tempActionID, patientID))
 				responseText = "* Done. *"
 			else:
 				responseText = "* You already did that! *"
@@ -40,4 +40,18 @@ def generateResponse(patientID, triggerValue):
 
 	response = {"text":responseText, "media":responseMedia}
 
+	return json.dumps(response)
+
+def getDiagnosisList():
+	response = []
+	results = query_db("SELECT id, name FROM diagnosis", ())
+	for row in results:
+		response.append({"id":row[0], "name":row[1]})
+	return json.dumps(response)
+
+def getPatientListForDiagnosis(diagnosisID):
+	response = []
+	results = query_db("SELECT patient_id, name FROM patients WHERE diagnosis_id=?", (diagnosisID,))
+	for row in results:
+		response.append({"id":row[0], "name":row[1]})
 	return json.dumps(response)
