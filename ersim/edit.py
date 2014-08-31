@@ -36,6 +36,7 @@ def addResponseForTrigger(triggerID, responseValue):
 	response = []
 	if len(result) > 0:
 		responseID = result[0][0]
+		trLinkIDResult = query_db('SELECT id FROM tr_links WHERE trigger_id=? AND response_id=?', (triggerID, responseID))
 		if len(trLinkIDResult) == 0:	
 			commit_db('INSERT OR IGNORE INTO tr_links (trigger_id, response_id) VALUES (?,?)', (triggerID, responseID))
 			response.append({"id":responseID, "response":responseValue, "media_id":0})
