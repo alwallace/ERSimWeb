@@ -109,3 +109,7 @@ def viewPatientRoute():
 @app.route('/edit/generatePatientForDiagnosis', methods=['POST'])
 def generatePatientForDiagnosisRoute():
 	return edit.generatePatientForDiagnosis(request.form['diagnosisID'])
+
+@app.route('/edit/deletePatient', methods=['POST'])
+def deletePatientRoute():
+	return edit.deletePatient(request.form['patientID'])

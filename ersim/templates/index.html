@@ -7,6 +7,7 @@
 	<input type = "submit" value = "play" id = "playButton">
 	<input type = "submit" value = "edit" id = "editButton">
 	<input type = "submit" value = "generate" id = "generateButton">
+	<input type = "submit" value = "delete patient" id = "deletePatientButton">
 	<input type = "submit" value = "view" id = "viewButton">
 
 	<div class="DiagnosisPane">
@@ -62,6 +63,16 @@
 		if (selectedDiagnosisID != -1) {
 			$.post("/edit/generatePatientForDiagnosis", { diagnosisID:window.selectedDiagnosisID }, function (data, status) {
 				var obj = JSON.parse(data);
+			});
+			loadPatientListTable();
+		}
+	});
+
+	$("#deletePatientButton").click(function() {
+		if (selectedPatientID != -1) {
+			$.post("/edit/deletePatient", { patientID:window.selectedPatientID }, function(data, status) {
+				var obj = JSON.parse(data);
+				window.selectedPatientID = -1;
 			});
 			loadPatientListTable();
 		}

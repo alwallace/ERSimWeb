@@ -101,3 +101,10 @@ def getResponsesForPatient(patientID):
 	for row in result:
 		response.append({"trigger_id":row[0], "trigger":row[1], "response_id":row[2], "response":row[3], "media_id":row[4]})
 	return json.dumps(response)
+
+def deletePatient(patientID):
+	response = []
+	commit_db('DELETE FROM ptr_links WHERE patient_id=?', (patientID,))
+	commit_db('DELETE FROM patients WHERE patient_id=?', (patientID,))
+	response.append('Done')
+	return json.dumps(response)
