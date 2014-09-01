@@ -38,16 +38,36 @@
 		<h1>Media</h1>
 	</div>
 	<div class = 'commandList'>
-		<h1>Command List</h1>
+		<h1>Command List (?)</h1>
+		<table id="commandListTable" >
+			<thead>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
+	function loadCommandList() {
+		$.get("/edit/getTriggerList", 
+			function(data,status) { 
+				var obj = JSON.parse(data);
+
+				$.each(obj, function(i, item) {
+					$('#commandListTable > tbody:last').append("<tr><td>" + item.trigger + "</td></tr>")
+				});
+			}
+		);
+	};
+
 	$(function() {$("#commandText").focus();});
 
 	$(document).ready(function() {
+		loadCommandList();
+
 		$("#submitButton").click(function() {
 			$.post("response", 
 				{ trigger:$("#commandText").val(), patientID:getParameterByName("patientID")}, 

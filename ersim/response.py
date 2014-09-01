@@ -4,6 +4,7 @@ from flask import g
 from ersim import query_db, commit_db
 
 def generateResponse(patientID, triggerValue):
+	triggerValue = triggerValue.lower()
 	responseText = "** Please ask a question (history, physical exam, etc.) with '?' [ex: 'pain?' will ask the patient if they have pain] or perform an action (medications, lab, imaging, etc.) with '.' [ex: '.cbc' will place an order for a CBC] **"
 
 	responseMedia = ""
