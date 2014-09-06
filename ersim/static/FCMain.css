@@ -58,3 +58,13 @@ body/* CSS Document */
 	top: 10px;
 	left: 90px;
 }
+#MainBox #MenuBar #User {
+	height: 20px;
+	width: 230px;
+	background-color: #9595FF;
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-style: normal;
+	text-align: center;
+	float: right;
+}

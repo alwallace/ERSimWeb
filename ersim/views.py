@@ -8,10 +8,10 @@ from flask import flash, redirect, url_for
 from flask.ext.login import login_required, login_user, logout_user, current_user
 from ersim import user
 
-
 @app.route('/')
+@login_required
 def indexRoute():
-	return render_template("index.html")
+	return render_template("FCMain.html")
 
 @app.route('/play')
 @login_required
@@ -46,7 +46,7 @@ def loginRoute():
 			flash("logged in successfully")
 			return redirect(request.args.get("next") or url_for("indexRoute"))
 	elif request.method == 'GET':
-		return render_template("login.html")
+		return render_template("FPIndex.html")
 	else:
 		return "Sucker"
 
@@ -113,3 +113,7 @@ def generatePatientForDiagnosisRoute():
 @app.route('/edit/deletePatient', methods=['POST'])
 def deletePatientRoute():
 	return edit.deletePatient(request.form['patientID'])
+
+@app.route('/test')
+def testRoute():
+	return render_template("index.html")

@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = "login"
+login_manager.login_view = "/login"
 login_manager.login_message = "Hi, please log in."
 
 # Load default config and override config from an environment variable
