@@ -11,8 +11,8 @@ body{
 	background-image: url("{{ url_for('static', filename='images/FM Room 1.jpg') }}");
 	}
 </style>
-<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
-<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<script src="{{ url_for('static', filename='SpryAssets/SpryMenuBar.js') }}" type="text/javascript"></script>
+<link href="{{ url_for('static', filename='SpryAssets/SpryMenuBarHorizontal.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -41,7 +41,7 @@ body{
           <li><a href="#">Current Medications</a></li>
           </ul>
         </li>
-        <li><a href="FPIndex.html">Log out</a></li>
+        <li><a href="/logout">Log out</a></li>
     </ul>
       <div id="User">Dr. Alex Wallace
       </div>
@@ -55,7 +55,7 @@ body{
 </div>
 <script type="text/javascript">
 <!--
-var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {imgDown:"{{ url_for('static', filename='SpryAssets/SpryMenuBarDownHover.gif') }}", imgRight:"{{ url_for('static', filename='SpryAssets/SpryMenuBarRightHover.gif') }}"});
 //-->
 </script>
 </body>
