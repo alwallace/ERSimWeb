@@ -25,10 +25,13 @@ body/* CSS Document */
 }
 #MainBox #PatientList {
 	width: 450px;
-	height: 400px;
+	height: 380px;
 	float: left;
 	background-color: #FFFFFF;
 	opacity: 0.9;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 #MainBox #PatientChartBrief {
 	float: right;
@@ -73,6 +76,7 @@ body/* CSS Document */
 	position: relative;
 	left: 50px;
 }
+
 #MainBox #MenuBar #MenuBar1 li {
 	text-align: center;
 }
@@ -98,10 +102,13 @@ body/* CSS Document */
 	text-align: center;
 }
 #Edit #Editbox {
-	height: 400px;
+	height: 500px;
 	background-color: #FFFFFF;
 	margin-top: 20px;
 	opacity: 0.95;
+	padding-top: 20px;
+	width: 940px;
+	padding-left: 60px;
 }
 #Play #MenuBar #User {
 	text-transform: uppercase;
