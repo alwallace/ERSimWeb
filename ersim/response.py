@@ -1,6 +1,7 @@
 import sqlite3
 import json
 from flask import g
+from flask.ext.login import current_user
 from ersim import query_db, commit_db
 
 def generateResponse(patientID, triggerValue):
@@ -56,3 +57,16 @@ def getPatientListForDiagnosis(diagnosisID):
 	for row in results:
 		response.append({"id":row[0], "name":row[1]})
 	return json.dumps(response)
+
+def getPatientsForUser(userID):
+	response = []
+	results = query_db("SELECT patients.patient_id, name, sex FROM patients, user_patients WHERE user_patients.user_id=? AND user_patients.user_patient_id=patients.patient_id", (userID,))
+	for row in results:
+		response.append({"patient_id":row[0], "patient_name":row[1], "patient_sex":row[2]})
+	return json.dumps(response)
+
+def getCurrentUserName():
+	response = []
+	response.append({"user_name":current_user.name})
+	return json.dumps(response)
+

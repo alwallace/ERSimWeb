@@ -43,20 +43,62 @@ body{
         </li>
         <li><a href="/logout">Log out</a></li>
     </ul>
-    <div id="User">Dr. Alex Wallace
-      </div>
+    <div id="User"></div>
   </div>
   	<br />
     <div id="PatientList">
+      <table id="patientTable" style="width:200px; float:left;">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Patients</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+      </table>
+
     </div>
     <div id="PatientChartBrief">
     </div>
 
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
-<!--
-var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {imgDown:"{{ url_for('static', filename='SpryAssets/SpryMenuBarDownHover.gif') }}", imgRight:"{{ url_for('static', filename='SpryAssets/SpryMenuBarRightHover.gif') }}"});
-//-->
+  var selectedPatientID = -1;
+  var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {imgDown:"{{ url_for('static', filename='SpryAssets/SpryMenuBarDownHover.gif') }}", imgRight:"{{ url_for('static', filename='SpryAssets/SpryMenuBarRightHover.gif') }}"});
+
+  function loadPatientList() {
+    $.get("/getPatientsForCurrentUser", function(data,status) {
+      var obj = JSON.parse(data);
+
+      $.each(obj, function(i, item) {
+        $('#patientTable > tbody:last').append("<tr id='patient" + item.patient_id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + item.patient_id + "</td><td>" + item.patient_name + "</td></tr>")
+      });
+
+      $(".clickableRowPatient").click(function() {
+          $(".clickableRowPatient").attr('bgcolor', 'white');
+          $(this).attr('bgcolor', 'grey');
+          window.selectedPatientID = $(this).find('td.patientID').html(); 
+      });
+    });
+  };
+
+  function loadUserName() {
+    $.get("/user/getCurrentUserName", function(data,status) {
+      var obj = JSON.parse(data);
+      var usr = obj[0];
+
+      $('#User').text(usr.user_name);
+    });
+  };
+
+  $(document).ready(function($) {
+    loadPatientList();
+    loadUserName();
+  });
 </script>
 </body>
 </html>

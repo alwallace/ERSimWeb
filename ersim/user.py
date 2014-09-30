@@ -1,3 +1,4 @@
+import json
 from ersim import query_db
 
 
@@ -7,6 +8,10 @@ def get(userid):
 		return User(userid, val[0], val[1], val[2])
 	else:
 		return None
+
+def getName(userid):
+	val = query_db("SELECT name FROM users WHERE user_id=?", (userid,), True)
+
 
 class User():
 	def __init__(self, uid, username, password, name):

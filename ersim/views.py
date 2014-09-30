@@ -35,6 +35,18 @@ def getDiagnosisListRoute():
 def getPatientListForDiagnosisRoute():
 	return response.getPatientListForDiagnosis(request.form['diagnosisID'])
 
+@app.route('/getPatientsForCurrentUser', methods=['GET'])
+def getPatientsForCurrentUserRoute():
+	return response.getPatientsForUser(current_user.uid)
+
+@app.route('/getPatientsForUser', methods=['POST'])
+def getPatientsForUserRoute():
+	return response.getPatientsForUser(request.form['userID'])
+
+@app.route('/user/getCurrentUserName', methods=['GET'])
+def getCurrentUserNameRoute():
+	return response.getCurrentUserName()
+
 @app.route('/login', methods=['GET', 'POST'])
 def loginRoute():
 	if request.method == 'POST':
@@ -65,6 +77,11 @@ def editRoute():
 def logoutRoute():
 	logout_user()
 	return redirect('/login')
+
+@app.route('/user/getName', methods=['POST'])
+@login_required
+def userGetNameRoute():
+	user.getName()
 
 @app.route('/edit/getTriggerList')
 @login_required
