@@ -13,10 +13,30 @@ from ersim import user
 def indexRoute():
 	return render_template("FCMain.html")
 
-@app.route('/play')
+@app.route('/interview')
 @login_required
-def playRoute():
-	return render_template('main.html')
+def interviewRoute():
+	return render_template('FCInterview.html')
+
+@app.route('/notewriter')
+@login_required
+def noteWriterRoute():
+	return render_template('FCNoteWriter.html')
+
+@app.route('/assessment')
+@login_required
+def assessmentRoute():
+	return render_template('FCAssessment.html')
+
+@app.route('/quiz')
+@login_required
+def quizRoute():
+	return render_template('FCQuiz.html')
+
+@app.route('/knowledgebase')
+@login_required
+def knowledgebaseRoute():
+	return render_template("FCKnowledgebase.html")
 
 @app.route('/response', methods=['GET', 'POST'])
 def responseRoute():
@@ -42,6 +62,10 @@ def getPatientsForCurrentUserRoute():
 @app.route('/getPatientsForUser', methods=['POST'])
 def getPatientsForUserRoute():
 	return response.getPatientsForUser(request.form['userID'])
+
+@app.route('/getPatientsBriefChart', methods=['POST'])
+def getPatientsBriefChartRoute():
+	return response.getPatientsBriefChart(request.form['patientID'])
 
 @app.route('/user/getCurrentUserName', methods=['GET'])
 def getCurrentUserNameRoute():
@@ -112,6 +136,11 @@ def removeResponseForDiagnosis():
 @login_required
 def addResponseForTrigger():
 	return edit.addResponseForTrigger(request.form['triggerID'], request.form['responseValue'])
+
+@app.route('/edit/removeResponseForTrigger', methods=['POST'])
+@login_required
+def removeResponseForTriggerRoute():
+	return edit.removeResponseForTrigger(request.form['triggerID'], request.form['responseID'])
 
 @app.route('/edit/getResponsesForPatient', methods=['POST'])
 @login_required

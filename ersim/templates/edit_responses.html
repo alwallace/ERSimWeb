@@ -41,6 +41,7 @@
 			</tbody>
 		</table>
 		<input type = "submit" value = "add" id = "addButton">
+		<input type = "submit" value = "remove" id = "removeButton">
 		<input type = "text" name = "inputText" id = "inputText"
 	</div>
 </body>
@@ -136,6 +137,13 @@
 				);
 			}
 
+		});
+
+		$("#removeButton").click(function() {
+			if (selectedTriggerID != -1) {
+				$.post("edit/removeResponseForTrigger",
+					{triggerID:selectedTriggerID, responseID:})
+			}
 		});
 
 	});

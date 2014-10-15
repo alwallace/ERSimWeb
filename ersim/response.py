@@ -65,6 +65,12 @@ def getPatientsForUser(userID):
 		response.append({"patient_id":row[0], "patient_name":row[1], "patient_sex":row[2]})
 	return json.dumps(response)
 
+def getPatientsBriefChart(patientID):
+	response = []
+	result = query_db('SELECT response, media_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger="cc"', (patientID,), True)
+	response.append({"cc":result[0]})
+	return json.dumps(response)
+
 def getCurrentUserName():
 	response = []
 	response.append({"user_name":current_user.name})

@@ -49,6 +49,9 @@ def addResponseForTrigger(triggerID, responseValue):
 		response.append({"id":responseID, "response":responseValue, "media_id":0})
 	return json.dumps(response)
 
+def removeResponseForTrigger(triggerID, responseID):
+	commit_db('DELETE FROM tr_links WHERE trigger_id=? and response_id=?', (triggerID, responseID))
+	return ""
 
 
 def addResponseForDiagnosis(triggerID, diagnosisID, responseID):

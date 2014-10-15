@@ -17,46 +17,21 @@ body/* CSS Document */
 	margin: auto;
 	width: 1000px;
 }
-#Edit {
-	height: 400px;
-}
-
 #MainBox {
 	height: 600px;
 }
 #MainBox #MenuBar {
 	height: 40px;
 }
-#Edit #MenuBar {
-	height: 40px;
-}
-#Edit #Editbox {
-	height: 550px;
-	margin-top: 20px;
-	background-color: #DFDFDF;
-	opacity: 0.95;
-}
-#Edit #MenuBar #MenuBar1 {
-	margin-left: 150px;
-}
-#Edit #MenuBar #User {
-	text-transform: uppercase;
-	text-align: center;
-	background-color: #9595FF;
-	height: 20px;
-	width: 230px;
-	float: right;
-	font-style: normal;
-	text-decoration: underline;
-}
-
-
 #MainBox #PatientList {
 	width: 450px;
-	height: 400px;
+	height: 380px;
 	float: left;
 	background-color: #FFFFFF;
 	opacity: 0.9;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 #MainBox #PatientChartBrief {
 	float: right;
@@ -77,7 +52,6 @@ body/* CSS Document */
 	left: 180px;
 	width: 250px;
 	height: 130px;
-	opacity: 0.95;
 }
 
 #Login #Submenu #LoginButton {
@@ -87,39 +61,80 @@ body/* CSS Document */
 	left: 90px;
 }
 #MainBox #MenuBar #User {
-	height: 20px;
-	width: 230px;
-	background-color: #9595FF;
 	text-transform: uppercase;
 	text-decoration: underline;
-	font-style: normal;
+	background-color: #A4BBFF;
+	width: 230px;
 	text-align: center;
+	height: 20px;
 	float: right;
+}
+#MainBox #MenuBar select {
+	float: left;
+}
+#MainBox #MenuBar #MenuBar1 {
+	position: relative;
+	left: 50px;
+}
+
+#MainBox #MenuBar #MenuBar1 li {
+	text-align: center;
+}
+#Edit #MenuBar #User {
+	text-transform: uppercase;
+	text-decoration: underline;
+	text-align: center;
+	height: 20px;
+	width: 230px;
+	float: right;
+	background-color: #A4BBFF;
+}
+#Edit {
+	height: 600px;
+}
+#Edit #MenuBar {
+	height: 40px;
+}
+#Edit #MenuBar #MenuBar1 {
+	margin-left: 210px;
+}
+#Edit #MenuBar #MenuBar1 li {
+	text-align: center;
+}
+#Edit #Editbox {
+	height: 500px;
+	background-color: #FFFFFF;
+	margin-top: 20px;
+	opacity: 0.95;
+	padding-top: 20px;
+	width: 940px;
+	padding-left: 60px;
+}
+#Play #MenuBar #User {
+	text-transform: uppercase;
+	text-decoration: underline;
+	background-color: #A4BBFF;
+	background-position: center center;
+	height: 20px;
+	width: 230px;
+	float: right;
+	text-align: center;
 }
 #Play {
 	height: 600px;
-	float: none;
 }
 #Play #MenuBar {
 	height: 40px;
 }
 #Play #MenuBar #MenuBar1 {
-	margin-left: 150px;
+	margin-left: 210px;
 }
-
 #Play #Playbox {
 	height: 550px;
 	margin-top: 20px;
-	background-color: #CCCCCC;
+	background-color: #FFFFFF;
 	opacity: 0.95;
 }
-#Play #MenuBar #User {
-	text-transform: uppercase;
-	text-decoration: underline;
-	background-color: #9595FF;
-	font-style: normal;
+#Play #MenuBar #MenuBar1 li {
 	text-align: center;
-	float: right;
-	width: 230px;
-	height: 20px;
 }
