@@ -18,8 +18,9 @@ def generateResponse(patientID, triggerValue):
 			responseText = "I do not want to answer that."
 		else:
 			responseText = result[0]
-			# Record the user trigger
-			commit_db("INSERT INTO user_triggers (user_id, patient_id, trigger_id) VALUES (?,?,?)", (current_user.uid, patientID, result[2]))
+			# Record the user trigger if there hasn't been one before! Otherwise skip
+			if query_db("SELECT COUNT(user_trigger_id) FROM user_triggers WHERE user_id=? AND patient_id=? AND trigger_id=?", (current_user.uid, patientID, result[2]), True)[0] == 0:
+				commit_db("INSERT INTO user_triggers (user_id, patient_id, trigger_id) VALUES (?,?,?)", (current_user.uid, patientID, result[2]))
 			result = query_db('SELECT file FROM media WHERE media.id=?', (result[1],), True)
 			if result is not None:
 				responseMedia = result[0]
@@ -48,9 +49,9 @@ def generateResponse(patientID, triggerValue):
 def getAssessment(userID, patientID):
 	response = []
 	# Get all the goal triggers
-	resultGoalTriggers = query_db("SELECT trigger.id, trigger.trigger FROM patients, triggers, goal_triggers WHERE patient_id=? AND patients.diagnosis_id=goal_triggers.diagnosis_id AND triggers.id=goal_triggers.trigger_id" (patientID,))
+	resultGoalTriggers = query_db("SELECT triggers.id, triggers.trigger FROM patients, triggers, goal_triggers WHERE patient_id=? AND patients.diagnosis_id=goal_triggers.diagnosis_id AND triggers.id=goal_triggers.trigger_id", (patientID,))
 	# Get all the user triggers
-	resultUserTriggers = query_db("SELECT trigger.id, trigger.trigger FROM triggers, user_triggers WHERE triggers.id=trigger_id AND user_id=? AND patient_id=?", (userID, patientID))
+	resultUserTriggers = query_db("SELECT triggers.id, triggers.trigger FROM triggers, user_triggers WHERE triggers.id=trigger_id AND user_id=? AND patient_id=?", (userID, patientID))
 
 	# Get the missed goal triggers
 	# Get the matched goal triggers
@@ -61,11 +62,27 @@ def getAssessment(userID, patientID):
 	for row in resultUserTriggers:
 		if row in resultGoalTriggers:
 			matchedTriggers.append(row)
+			resultGoalTriggers.remove(row)
 		else:
 			unnecessaryTriggers.append(row)
-		resultGoalTriggers.remove(row)
+		
 	missedTriggers = resultGoalTriggers
-	response.append({"missed":missedTriggers, "matched":matchedTriggers, "unnecessary":unnecessaryTriggers})
+
+	missedTriggersD = []
+	for row in missedTriggers:
+		missedTriggersD.append({"id":row[0], "trigger":row[1]})
+
+	matchedTriggersD = []
+	for row in matchedTriggers:
+		matchedTriggersD.append({"id":row[0], "trigger":row[1]})
+
+	unnecessaryTriggersD = []
+	for row in unnecessaryTriggers:
+		unnecessaryTriggersD.append({"id":row[0], "trigger":row[1]})
+	
+	response.append({"missed":missedTriggersD, "matched":matchedTriggersD, "unnecessary":unnecessaryTriggersD})	
+
+	print response
 	return json.dumps(response)
 
 def getDiagnosisList():

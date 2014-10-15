@@ -33,13 +33,19 @@
             </ul>
             <div id="User"></div>
         </div>
-        <div id="Playbox" class="width2"></div>
+        <div id="Playbox" class="width2">
+          <textarea id="assessmentText"></textarea>
+        </div>
     </div>
 
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
 var selectedPatientID = getParameterByName("patientID");
+var missedTriggers;
+var matchedTriggers;
+var unnecessaryTriggers;
+
 <!--
 var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {
     imgDown: "{{ url_for('static', filename='SpryAssets/SpryMenuBarDownHover.gif') }}",
@@ -64,8 +70,34 @@ function loadUserName() {
     });
 };
 
+function loadAssessment() {
+    $.post("/getAssessment", { "patientID":selectedPatientID }, function(data, status) {
+        var results = JSON.parse(data)[0];
+
+        var assessmentText = "Missed:\n";
+        for (var i = 0; i < results.missed.length; i++) {
+          assessmentText = assessmentText + " " + results.missed[i].id + "  " + results.missed[i].trigger + "\n";
+        }
+        assessmentText = assessmentText + "\nMatched\n";
+        for (var i = 0; i < results.matched.length; i++) {
+          assessmentText = assessmentText + " " + results.matched[i].id + "  " + results.matched[i].trigger + "\n";
+        }
+        assessmentText = assessmentText + "\nUnnecessary\n";
+        for (var i = 0; i < results.unnecessary.length; i++) {
+          assessmentText = assessmentText + " " + results.unnecessary[i].id + "  " + results.unnecessary[i].trigger + "\n";
+        }
+
+        $("#assessmentText").text(assessmentText);
+
+        window.missedTriggers = results.missed;
+        window.matchedTriggers = results.matched;
+        window.unnecessaryTriggers = results.unnecessary;
+    });
+}
+
 $(document).ready(function($) {
     loadUserName();
+    loadAssessment();
 });
 
 function getParameterByName(name) {
