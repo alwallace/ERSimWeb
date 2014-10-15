@@ -1,125 +1,139 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Main Office</title>
-<link href="{{ url_for('static', filename='StyleCode.css') }}" rel="stylesheet" type="text/css" />
 
-<style type="text/css">
-body{
-  background-repeat: no-repeat;
-  background-position: center -150px;
-  background-image: url("{{ url_for('static', filename='images/FM Room 1.jpg') }}");
-  }
-</style>
-<script src="{{ url_for('static', filename='SpryAssets/SpryMenuBar.js') }}" type="text/javascript"></script>
-<link href="{{ url_for('static', filename='SpryAssets/SpryMenuBarHorizontal.css') }}" rel="stylesheet" type="text/css" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Main Office</title>
+    <link href="{{ url_for('static', filename='StyleCode.css') }}" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+    body {
+        background-repeat: no-repeat;
+        background-position: center -150px;
+        background-image: url("{{ url_for('static', filename='images/FM Room 1.jpg') }}");
+    }
+    </style>
+    <script src="{{ url_for('static', filename='SpryAssets/SpryMenuBar.js') }}" type="text/javascript"></script>
+    <link href="{{ url_for('static', filename='SpryAssets/SpryMenuBarHorizontal.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div id="MainBox" class="width2">
-  <div id="MenuBar" class="width2">
-      <select>
-      <option value="ER">Emergency Room</option>
-      <option value="FM">Family Medicine Clinic</option>
-      <option value="Ophtho">Ophthalmology</option>
-      <option value="Surg">Surgery</option>
-    </select>
-      <ul id="HorizontalMenu" class="MenuBarHorizontal">
-        <li><a id="interviewButton" href="#Interview">Interview</a></li>
-        <li><a class="MenuBarItemSubmenu" href="#">Tools</a>
-            <ul>
-              <li><a id="editButton" href="#Edit">Edit</a></li>
-              <li><a id="generateButton" href="#Generate">Generate</a></li>
+    <div id="MainBox" class="width2">
+        <div id="MenuBar" class="width2">
+            <select>
+                <option value="ER">Emergency Room</option>
+                <option value="FM">Family Medicine Clinic</option>
+                <option value="Ophtho">Ophthalmology</option>
+                <option value="Surg">Surgery</option>
+            </select>
+            <ul id="HorizontalMenu" class="MenuBarHorizontal">
+                <li><a id="interviewButton" href="#Interview">Interview</a>
+                </li>
+                <li><a class="MenuBarItemSubmenu" href="#">Tools</a>
+                    <ul>
+                        <li><a id="editButton" href="#Edit">Edit</a>
+                        </li>
+                        <li><a id="generateButton" href="#Generate">Generate</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Account</a>
+                </li>
+                <li><a href="/logout">Logout</a>
+                </li>
             </ul>
-        </li>
-        <li><a href="#">Account</a></li>
-        <li><a href="FPIndex.html">Logout</a></li>
-      </ul>
-      <div id="User"></div>
-  </div>
-    <br />
-    <div id="PatientList">
-      <div class="PatientPane">
-            <table width="300" id="patientTable" style="width:320px; float:left;">
-            <thead>
-                    <tr>
-                        <th width="19">id</th>
-                        <th width="105">Patients</th>
-                        <th width="22">S</th>
-                        <th width="34">Age</th>
-                        <th width="96">CC</th>
-            </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-      </div>
+            <div id="User"></div>
+        </div>
+        <br />
+        <div id="PatientList">
+            <div class="PatientPane">
+                <table width="300" id="patientTable" style="width:320px; float:left;">
+                    <thead>
+                        <tr>
+                            <th width="19">id</th>
+                            <th width="105">Patients</th>
+                            <th width="22">S</th>
+                            <th width="34">Age</th>
+                            <th width="96">CC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="PatientChartBrief"></div>
     </div>
-  <div id="PatientChartBrief"></div>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">
-  var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {imgDown:"{{ url_for('static', filename='SpryAssets/SpryMenuBarDownHover.gif') }}", imgRight:"{{ url_for('static', filename='SpryAssets/SpryMenuBarRightHover.gif') }}"});
-
-  var selectedPatientID = -1;
-  var selectedPatientCC = "";
-
-  $("#interviewButton").click(function() {
-    if (selectedPatientID != -1) {
-      window.location = "/interview?patientID=" + selectedPatientID
-    }
-  });
-
-  $("#editButton").click(function() {
-    if (selectedDiagnosisID != -1) {
-      
-    }
-  });
-
-  $("#generateButton").click(function() {
-    if (selectedDiagnosisID != -1) {
-      $.post("/edit/generatePatientForDiagnosis", { diagnosisID:window.selectedDiagnosisID }, function (data, status) {
-        var obj = JSON.parse(data);
-      });
-      loadPatientList();
-    }
-  });
-
-  function loadPatientList() {
-    $.get("/getPatientsForCurrentUser", function(data,status) {
-      var obj = JSON.parse(data);
-      
-      $.each(obj, function(i, item) {
-        $('#patientTable > tbody:last').append("<tr id='patient" + item.patient_id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + item.patient_id + "</td><td>" + item.patient_name + "</td></tr>")
-      });
-
-      $(".clickableRowPatient").click(function() {
-          $(".clickableRowPatient").attr('bgcolor', 'white');
-          $(this).attr('bgcolor', 'grey');
-          window.selectedPatientID = $(this).find('td.patientID').html();
-          $.post("/getPatientsBriefChart", { patientID:selectedPatientID }, function(data, status) {
-            window.selectedPatientCC = JSON.parse(data)[0].cc;
-            $('#PatientChartBrief').text(selectedPatientCC);
-          });
-      });
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var MenuBar1 = new Spry.Widget.MenuBar("HorizontalMenu", {
+        imgDown: "{{ url_for('static', filename='SpryAssets/SpryMenuBarDownHover.gif') }}",
+        imgRight: "{{ url_for('static', filename='SpryAssets/SpryMenuBarRightHover.gif') }}"
     });
-  };
 
-  function loadUserName() {
-    $.get("/user/getCurrentUserName", function(data,status) {
-      var obj = JSON.parse(data);
-      var usr = obj[0];
+    var selectedPatientID = -1;
+    var selectedPatientCC = "";
 
-      $('#User').text(usr.user_name);
+    $("#interviewButton").click(function() {
+        if (selectedPatientID != -1) {
+            window.location = "/interview?patientID=" + selectedPatientID
+        }
     });
-  };
 
-  $(document).ready(function($) {
-    loadPatientList();
-    loadUserName();
-  });
-</script>
+    $("#editButton").click(function() {
+        if (selectedDiagnosisID != -1) {
+
+        }
+    });
+
+    $("#generateButton").click(function() {
+        if (selectedDiagnosisID != -1) {
+            $.post("/edit/generatePatientForDiagnosis", {
+                diagnosisID: window.selectedDiagnosisID
+            }, function(data, status) {
+                var obj = JSON.parse(data);
+            });
+            loadPatientList();
+        }
+    });
+
+    function loadPatientList() {
+        $.get("/getPatientsForCurrentUser", function(data, status) {
+            var obj = JSON.parse(data);
+
+            $.each(obj, function(i, item) {
+                $('#patientTable > tbody:last').append("<tr id='patient" + item.patient_id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + item.patient_id + "</td><td>" + item.patient_name + "</td></tr>")
+            });
+
+            $(".clickableRowPatient").click(function() {
+                $(".clickableRowPatient").attr('bgcolor', 'white');
+                $(this).attr('bgcolor', 'grey');
+                window.selectedPatientID = $(this).find('td.patientID').html();
+                $.post("/getPatientsBriefChart", {
+                    patientID: selectedPatientID
+                }, function(data, status) {
+                    window.selectedPatientCC = JSON.parse(data)[0].cc;
+                    $('#PatientChartBrief').text(selectedPatientCC);
+                });
+            });
+        });
+    };
+
+    function loadUserName() {
+        $.get("/user/getCurrentUserName", function(data, status) {
+            var obj = JSON.parse(data);
+            var usr = obj[0];
+
+            $('#User').text(usr.user_name);
+        });
+    };
+
+    $(document).ready(function($) {
+        loadPatientList();
+        loadUserName();
+    });
+    </script>
 
 </body>
+
 </html>

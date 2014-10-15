@@ -112,3 +112,13 @@ def deletePatient(patientID):
 	commit_db('DELETE FROM patients WHERE patient_id=?', (patientID,))
 	response.append('Done')
 	return json.dumps(response)
+
+def userNote(userID, patientID, note):
+	response = []
+	result = query_db("SELECT user_notes_id FROM user_notes WHERE user_id=? AND patient_id=?", (userID, patientID))
+	if len(result) > 0:
+		commit_db('UPDATE user_notes SET note=? WHERE user_notes_id=?', (note, result[0][0]))
+	else:
+		commit_db('INSERT INTO user_notes (user_id, patient_id, note) VALUES (?,?,?)', (userID, patientID, note))
+	response.append('Done')
+	return json.dumps(response)

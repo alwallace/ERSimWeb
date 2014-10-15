@@ -12,13 +12,14 @@ def generateResponse(patientID, triggerValue):
 
 	# if its a request for response (ends with ?)
 	if triggerValue.endswith('?'):
-		result = query_db('SELECT response, media_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger=?', (patientID, triggerValue[:-1]), True)
+		result = query_db('SELECT response, media_id, tr_links.trigger_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger=?', (patientID, triggerValue[:-1]), True)
 
 		if result is None:
 			responseText = "I do not want to answer that."
 		else:
 			responseText = result[0]
-
+			# Record the user trigger
+			commit_db("INSERT INTO user_triggers (user_id, patient_id, trigger_id) VALUES (?,?,?)", (current_user.uid, patientID, result[2]))
 			result = query_db('SELECT file FROM media WHERE media.id=?', (result[1],), True)
 			if result is not None:
 				responseMedia = result[0]
@@ -33,7 +34,7 @@ def generateResponse(patientID, triggerValue):
 			# check to see if the user already did the action so we don't do it again
 			tempUserAction = query_db('SELECT user_action_id FROM user_actions WHERE user_id=? AND action_id=? and patient_id=?', (1, tempActionID, patientID), True)
 			if tempUserAction is None:
-				commit_db('INSERT INTO user_actions (user_id, action_id, patient_id, timestamp) VALUES (?,?,?,CURRENT_TIMESTAMP)', (1, tempActionID, patientID))
+				commit_db('INSERT INTO user_actions (user_id, action_id, patient_id) VALUES (?,?,?)', (1, tempActionID, patientID))
 				responseText = "* Done. *"
 			else:
 				responseText = "* You already did that! *"
@@ -42,6 +43,29 @@ def generateResponse(patientID, triggerValue):
 
 	response = {"text":responseText, "media":responseMedia}
 
+	return json.dumps(response)
+
+def getAssessment(userID, patientID):
+	response = []
+	# Get all the goal triggers
+	resultGoalTriggers = query_db("SELECT trigger.id, trigger.trigger FROM patients, triggers, goal_triggers WHERE patient_id=? AND patients.diagnosis_id=goal_triggers.diagnosis_id AND triggers.id=goal_triggers.trigger_id" (patientID,))
+	# Get all the user triggers
+	resultUserTriggers = query_db("SELECT trigger.id, trigger.trigger FROM triggers, user_triggers WHERE triggers.id=trigger_id AND user_id=? AND patient_id=?", (userID, patientID))
+
+	# Get the missed goal triggers
+	# Get the matched goal triggers
+	# Get the unnecessary user triggers
+	missedTriggers = []
+	matchedTriggers = []
+	unnecessaryTriggers = []
+	for row in resultUserTriggers:
+		if row in resultGoalTriggers:
+			matchedTriggers.append(row)
+		else:
+			unnecessaryTriggers.append(row)
+		resultGoalTriggers.remove(row)
+	missedTriggers = resultGoalTriggers
+	response.append({"missed":missedTriggers, "matched":matchedTriggers, "unnecessary":unnecessaryTriggers})
 	return json.dumps(response)
 
 def getDiagnosisList():
