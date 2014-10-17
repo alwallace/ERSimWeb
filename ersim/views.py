@@ -64,10 +64,20 @@ def getAssessmentRoute():
 def quizRoute():
 	return render_template('FCQuiz.html')
 
+@app.route('/getQuiz')
+@login_required
+def getQuizRoute():
+	return response.getQuiz(current_user.uid, request.form['patientID'])
+
 @app.route('/knowledgebase')
 @login_required
 def knowledgebaseRoute():
 	return render_template("FCKnowledgebase.html")
+
+@app.route('/getKnowledge')
+@login_required
+def getKnowledgeRoute():
+	return response.getKnowledge(request.form['patientID'])
 
 @app.route('/test')
 def testRoute():
