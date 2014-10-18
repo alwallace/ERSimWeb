@@ -1,0 +1,1960 @@
+/*
+--------------------------------------------------------------------------------
+ topic.css - styles for topics
+--------------------------------------------------------------------------------
+*/
+
+/*
+--------------------------------------------------------------------------------
+ Common classes
+--------------------------------------------------------------------------------
+*/
+
+li.plainItem {
+	padding: 2px 0px 2px 0px;
+	margin: 2px 0px 2px 0px;
+	list-style-type: none;
+	border-top: 1px solid #cccccc;
+} 
+
+li.bulletItem {
+	list-style-type: none;
+	background-image: url(../images/topic_outline_bull_2.gif);
+	background-position: 0px 4px;
+	background-repeat: no-repeat;
+	padding: 0px 0px 2px 15px;
+	margin: 0px 0px 2px 15px;
+}
+
+li.dashItem {
+	list-style-type: none;
+	padding: 0px 0px 2px 22px;
+  	margin: 0px 0px 2px 22px;
+}
+
+li.bulletItem2 {
+	list-style-type: none;
+	background-image: url(../images/topic_outline_bull_2.gif);
+	background-position: 20px 4px;
+	background-repeat: no-repeat;
+	padding: 0px 0px 2px 15px;
+	margin: 0px 0px 2px 15px;
+}
+
+li.dashItem2 {
+	list-style-type: none;
+	padding: 0px 0px 2px 22px;
+  	margin: 0px 0px 2px 22px;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The topic outline
+--------------------------------------------------------------------------------
+*/
+#topicOutline {
+	font-size: 84%;
+	text-align: left;
+	margin: 0;
+	padding: 0.6em 0.6em 0 0.6em;
+}
+
+.fontSmall #topicOutline {
+	font-size: 75%;	
+}
+
+.fontLarge #topicOutline {
+	font-size: 100%;	
+}
+
+#topicOutline #toggleOutline {
+	float: right;
+	padding-left: 0.2em;
+}
+
+#topicOutline h1 {
+	font-size: 84%;
+	padding: 0;
+	margin: 0 0 0.4em 0;
+}
+
+#topicOutline a {
+	text-decoration: none;
+}
+
+#topicOutline .graphics_icon {
+	font-size: 11px;
+}
+
+#topicOutline a:hover {
+	text-decoration: underline;
+}
+
+#topicOutline ul {
+	margin: 0 0 1em 0;
+	padding: 0;
+	color: #336633;
+	display: block;
+}
+
+.wk-header #topicOutline ul {
+    color: #006EB3;
+}
+
+/* Override the general plain, bullet and dash styles for the outline */
+#topicOutline li.plainItem {
+	margin: 0;
+}
+
+#topicOutline li.bulletItem {
+	margin: 0;
+	padding: 1px 0 1px 15px;
+}
+
+#topicOutline li.dashItem {
+	margin: 0;
+	padding: 1px 0 1px 10px;
+}
+
+#topicOutline li.bulletItem2 {
+	margin: 0;
+	padding: 1px 0 1px 36px;
+}
+
+#topicOutline li.dashItem2 {
+	margin: 0;
+	padding: 1px 0 1px 28px;
+}
+
+#topicOutline #outline, #topicOutline #relatedGraphics, #topicOutline #relatedCalculators, #topicOutline #relatedTopics {
+	margin: 0;
+	padding: 0;
+}
+
+h1 .openRelatedGraphics a{
+	background: url(/images/icn_graphic.gif) no-repeat;
+	background-position: 0px 1px;
+	padding-left: 25px;
+	margin-left: 10px;
+}
+
+/*
+--------------------------------------------------------------------------------
+ Resolves line height issue when subscript or superscript characters are
+ inside of a new bullet section
+--------------------------------------------------------------------------------
+*/
+sup, sub {
+       vertical-align:baseline;
+       position:relative;
+       top:-0.4em;
+}
+
+sub {
+       top:0.4em;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The Summary & Recommendations button at top of topic outline
+--------------------------------------------------------------------------------
+*/
+.sr_button {
+    background: url("../images/srbutton-back.png") repeat scroll 0 0 transparent;
+    border: 1px solid #004400;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 2px 2px #AAAAAA;
+    color: white;
+    display: block;
+    font-family: Arial,"Helvetica Neue",sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    max-height: 40px;
+    overflow: hidden;
+    padding: 4px 10px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #006600;
+    margin: 8px 0;
+}
+.sr_button:hover {
+    background-position: 0 -40px;
+    text-shadow: 1px 1px 0 #006600;
+}
+.sr_button:active {
+    background-position: 0 -80px;
+    text-shadow: 1px 1px 0 #006600;
+}
+.sr_button span {
+    background: url("../images/srarrow.gif") no-repeat scroll 100% 50% transparent;
+    cursor: pointer !important;
+    display: inline-block;
+    line-height: 14px;
+    padding-right: 22px;
+}
+
+.wk-header .sr_button span {
+	color: white;	
+}
+
+/*
+--------------------------------------------------------------------------------
+ The text of a medical topic
+--------------------------------------------------------------------------------
+*/
+#topicContent {
+	margin: 30px 60px 30px 30px;
+	font-size: 84%;
+	text-align: left;
+  word-wrap: break-word; /* Needed for IE to force it to break long words */
+}
+
+.fontSmall #topicContent {
+	font-size: 75%;	
+}
+
+.fontLarge #topicContent {
+	font-size: 100%;	
+}
+
+#topicContent p {
+	line-height: 140%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#topicContent .bulletIndent1, 
+#topicContent .bulletIndent2, 
+#topicContent .bulletIndent3 {
+	position:relative;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+#topicContent .bulletIndent1 span.glyph, 
+#topicContent .bulletIndent2 span.glyph, 
+#topicContent .bulletIndent3 span.glyph {
+	position:absolute;
+	left:-17px;
+}
+#topicContent .bulletIndent1 {
+	margin-left:32px;
+}
+#topicContent .bulletIndent2 {
+	margin-left:64px;
+}
+#topicContent .bulletIndent3 {
+	margin-left:96px;
+}
+
+/* This padding and margin must be the same as the topPanel height in the layout*/
+#topicContent .headingAnchor {
+	padding-top: 109px; 
+	margin-top: -109px;
+}
+
+.wk-header #topicContent .headingAnchor {
+	padding-top: 173px; 
+	margin-top: -173px;
+}
+
+#topicContent .h1 {
+	font-weight: bold;
+}
+#topicContent .h2 {
+  font-weight: bold;
+}
+#topicContent .h3	 {
+	font-weight: bold;
+	margin-left: 20px;
+}
+#topicContent .h4	 {
+	font-weight: bold;
+	margin-left: 40px;
+}
+#topicContent .h5	 {
+	font-weight: bold;
+	margin-left: 60px;
+}
+
+#topicContent #topicTitle {
+	font-family: Arial;
+	font-size: 100%;
+	font-weight: bold;
+	display:inline;
+}
+
+
+.fontSmall #topicContent #topicTitle {
+	font-size: 15px;
+}
+
+.fontLarge #topicContent #topicTitle {
+	font-size: 22px;
+}
+
+#topicContent #basicsTopicLeft #topicTitle {
+	display:inline;
+}
+
+#topicContent #basicsTopicLeft .contributor {
+	display:block;
+	margin-bottom: 1em;
+	text-decoration: underline;
+}
+
+#topicContent span.view {
+	padding-left:5px;
+	font-size:75%;
+	line-height:165%;
+	color:#aaa;
+	white-space:no-wrap;
+}
+#topicContent span.view a.lang {
+	font-size:100%;
+	color:#3E85A1;
+	font-weight:bold;
+}
+
+#topicContent #topicContributors {
+	margin: 1em 0 0 0;
+	padding: 0;
+	overflow: hidden; 
+}
+
+#topicContent #topicContributors div {
+	float: left; 
+	width: 33%;
+	margin: 0;
+	padding: 0;
+}
+
+#topicContent #topicContributors .chineseContributors  {
+	width:100%; 
+	clear:both;
+}
+	
+	#topicContent #topicContributors .chineseContributors hr {
+		 height:1px;
+	    border:0px solid ;
+	    border-top:1px solid #ccc;
+	    widht:100%;
+	}
+
+
+#topicContent #topicContributors a {
+	text-decoration: none;
+}
+
+#topicContent #topicContributors a:hover {
+	text-decoration: underline;
+}
+
+#topicContent #topicContributors .emphasis {
+	font-weight: bold;
+}
+
+#topicContent #topicVersion, #topicContent #literatureReviewDate {
+	clear: both;
+	_margin-top: 2em;
+	margin-bottom: 0.5em;
+}
+
+#topicContent #topicVersion .emphasis, #topicContent #literatureReviewDate .emphasis {
+	font-weight: bold;
+}
+
+#topicContent #reviewProcess {
+}
+
+#topicContent #disclosures {
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+#topicContent #disclosures a {
+	text-decoration: none;
+}
+
+#topicContent #topicVersion a, #topicContent #literatureReviewDate a {
+	text-decoration: none;
+}
+
+#topicContent #topicVersion a:hover, #topicContent #literatureReviewDate a:hover {
+	text-decoration: underline;
+}
+
+#topicContent #topicVersionRevision {
+	padding-bottom: 20px;
+}
+
+#topicContent #topicAgreement {
+	text-align: center;
+	margin: 2em 0 2em 0;
+}
+
+#topicContent #topicText {
+	margin: 0;
+	padding: 0;
+}
+
+#topicContent #references h1 {
+	font-size: 100%;
+	text-align: center;
+	margin: 0;
+	color: #000000;
+}
+
+#topicContent #references a {
+	text-decoration: none;
+}
+
+#topicContent #references a:hover {
+	text-decoration: underline;
+}
+
+#topicContent a {
+	text-decoration: underline;	
+}
+
+#topicContent a.noUnderline {
+	text-decoration: none;
+}
+
+#topicContent a.noUnderline:hover {
+	text-decoration: underline;
+}
+
+#topicContent ul.bullet, #topicContent ul.bulletCompact, #topicContent ul.hyphen {
+	margin: 0;
+	padding: 0;
+}
+
+
+#topicContent ul.bullet-block, #topicContent ul.bulletCompact-block, #topicContent ul.hyphen-block {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	}
+
+/*
+#topicContent ul.bullet-block, #topicContent ul.bulletCompact-block {
+	margin: 10px;
+	padding: 10px;
+	}
+
+#topicContent ul.hyphen-block {
+	margin: 20px;
+	padding: 20px;
+	
+	}
+*/
+#topicContent ul.bullet li {
+	line-height: 140%;
+	list-style-type: disc;
+	list-style-position: inside;
+	padding: 6px 0 6px 0;
+	text-indent: 10px;
+}
+
+#topicContent ul.bulletCompact {
+  margin-bottom: 10px;
+}
+
+#topicContent ul.bullet-block li {
+	line-height: 140%;
+	list-style-type: square;
+	padding: 6px 0 6px 0;
+}
+
+#topicContent ul.bulletCompact li {
+  line-height: 140%;
+  list-style-type: square;
+  list-style-position: inside;
+  padding: 0;
+  text-indent: 10px;
+}
+
+#topicContent ul.bulletCompact-block li {
+  line-height: 140%;
+  list-style-type: square;
+  padding: 0;
+}
+
+#topicContent ul.hyphen li {
+  line-height: 140%;
+  list-style-type: none;
+  list-style-position: inside;
+  padding: 5px 0 5px 0;
+  text-indent: 20px;
+}
+
+#topicContent ul.hyphen-block li {
+	line-height: 140%;
+	list-style-type:disc;
+	margin:0 0 0 23px;
+	padding:2px 0 2px 2px;
+}
+
+#topicContent ol {
+	padding-left: 35px;
+	margin-left: 0px;
+}
+
+#topicContent ol li {
+	padding: 3px 0px 3px 0px;
+}
+
+#topicContent .highlighted, #topicOutline .highlighted {
+	color: #ffffff;
+	background-color: #336633;
+}
+
+#topicContent .highlightedCurrent, #topicOutline .highlightedCurrent {
+	color: #ffffff;
+	background-color: #D7833D;
+}
+
+#topicContent .bold {
+  font-weight: bold;
+}
+
+#topicContent .italic {
+  font-style: italic;
+}
+
+#topicContent .underline {
+  border-bottom: 1px solid black;
+}
+
+#topicContent .subscript {
+  font-size: 75%;
+  position: relative;
+  bottom : -0.5em;
+}
+
+#topicContent .superscript {
+  font-size: 75%;
+  position: relative;
+  top: -0.5em;
+}
+
+#topicContent .grade {
+  font-weight: bold;
+}
+
+#topicContent .contributor {
+	text-decoration: none;
+}
+
+#topicContent .contributorType {
+  font-weight: bold;
+}
+
+#topicContent .indent1 {
+  margin-left: 30px;
+}
+
+#printDisclaimer {
+	text-align: center;
+	font-size:10px;
+}
+
+#releaseVersion {
+	font-size: 0.85em;
+    font-style: italic;
+}
+
+#utdCopyright {
+	font-size: 0.85em;	
+}
+
+/*
+--------------------------------------------------------------------------------
+ The text of a drug topic
+--------------------------------------------------------------------------------
+*/
+#topicContent #drugTitle {
+  	font-weight: bold;
+  	font-size: 125%;
+  	float: left;
+  	padding-right: 10px;
+  	margin-bottom: 1em;
+}
+
+#lexiTitleImg{
+  	float: left;
+  	margin-top: 2px;
+  	background: url('../images/lexiComp/Lexicomp_sprite_2012.gif') no-repeat 0px 0px;
+  	width: 71px;
+  	height: 17px;
+}
+
+#lexiInteractAddInfo{
+	float: left;
+	padding: 0px 10px 0px 0px;	
+}
+
+#lexiInteractImgB{
+	float: left;
+  	background: url('../images/lexiComp/Lexicomp_sprite_2012.gif') no-repeat 0px 0px;
+  	width: 71px;
+  	height: 17px;
+}
+
+#lexiInteractClose{
+	display: block;
+	text-align: center;	
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#topicContent #lcoSearchClickUrl a {
+	color: #0A8EE7;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#topicContent #drugCopy {
+	color: #666666;
+	margin: 0 0 2em 0;
+}
+
+#topicContent .drugH1 {
+  font-weight: bold;
+  font-size: 125%;
+  margin-right: 0.5em;
+}
+
+#topicContent .drugH1Div {
+	padding-top: 109px; 
+	margin-top: -99px;
+}
+
+#topicContent .drugH1Div table {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+#topicText .drugH1Div table td, th {
+	margin: 0px;	
+	border: 1px solid black;
+}
+
+
+#topicContent .drugH1Div table caption {
+	margin-top: 1em;
+  margin-bottom: 0.5em;
+	font-weight: bold;
+}
+
+#topicContent .drugH1Div ul {
+  margin-left: 20px;
+}
+
+#topicContent .drugBrandNames ul {
+  margin-left: 0px;
+  padding-left: 0px;
+  display: inline;
+  list-style-type: none;
+}
+
+#topicContent .drugBrandNames ul li {
+  display: inline;
+}
+
+#topicContent .leaflet_statement {
+  text-indent: -2em;
+  margin-left: 2em;
+  text-align: justify;
+}
+
+#topicContent .statement_entity {
+  margin-right: 0.4em;
+}
+
+/* DE5375 > Temp fix... >>> */
+#topicContent div.ord-stmt ul {
+	margin-left:4px;
+}
+
+div.ord-stmt li {
+	padding-bottom:5px;
+	text-indent:-4px;
+}
+
+div.ord-stmt span.attributes {
+	display:inline !important;
+	padding-right:5px;
+}
+
+div.ord-stmt span.attributes > * {
+	display: none;
+}
+
+div.ord-stmt span.entity {
+	display: inline;
+	margin-left:-9px;
+}
+
+/* <<< DE5375 > Temp fix... */
+
+.collapsible {
+	margin-top: 2em;
+}
+
+.collapsible-title {
+	font-weight: bold;
+}
+
+.collapsible-date {
+	font-weight: bold;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The text of a calculator topic
+--------------------------------------------------------------------------------
+*/
+#topicContentCalculator {
+	margin: 3em 1em;
+	padding: 0;
+	font-size: arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+#topicContentCalculator #topicAgreement {
+	text-align: center;
+	margin: 3em 0 2em 0;
+}
+
+#topicContentCalculator .highlighted {
+	color: #ffffff;
+	background-color: #336633;
+}
+
+#topicContentCalculator .highlightedCurrent {
+	color: #ffffff;
+	background-color: #D7833D;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+ The version details box (from the More link)
+--------------------------------------------------------------------------------
+*/
+#versionDetails {
+	display: none;
+	position: fixed;	
+	padding: 8px;
+	width: 300px;
+	font-size: 13px;
+	font-style: italic;
+	text-align: justify;
+	line-height: 140%;
+	color: #000000;
+	background-color: #eeeeee; 
+	border: 1px solid #336633;				      
+	opacity: 0.95;
+	z-index: 1200;
+}
+
+#versionDetails p {
+	padding: 0;
+	margin: 0;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The find in page dialog.  Note that this is mostly styled via the jQuery CSS
+ theme, with some overrides here.
+--------------------------------------------------------------------------------
+*/
+#findInPage {
+	display: none;	
+	padding: 0.5em;
+	background-color: #eeeeee;
+}
+
+.findInPageDialog {
+	position: fixed; 
+	padding: 0;
+	color: #757575;
+	font-size: 65%;
+}
+
+.findInPageDialog .ui-dialog-titlebar { 
+	padding: 0.2em;
+}
+
+#findInPageButtons {
+	text-align: right;
+	float: right;
+	padding-top: 5px;
+}
+
+#findInPageResults  {
+	margin-top: 0.5em;
+}
+
+#findInPageResults .emphasis {
+	font-weight: bold;
+}
+
+#findInPageResultsIterator {
+	margin-top: 1em;
+}
+
+#findInPageResultsNext {
+	margin-left: 0.5em;
+}
+
+#findInPageResultsNone {
+	margin-top: 1em;
+	text-align: right;
+}
+
+#findInPageSearchTrans{
+	padding: 0 0px 2px 6px;
+}
+
+/*
+--------------------------------------------------------------------------------
+ Translated topic out-of-date
+--------------------------------------------------------------------------------
+*/
+#translatedTopicOutOfDate {
+	margin: 1em 0 0.5em 0;
+	padding: 0.4em 0.4em 0.4em 0.8em;
+	color: #666666;
+	border: 1px solid #d12d39;
+}
+
+#translatedTopicOutOfDate div {
+	text-align: left;
+	font-weight: normal;
+	color: #000000;
+}
+#translatedTopicOutOfDate .translatedOutOfDate1 {
+	position:relative;
+	display:inline;
+	margin-right: 2px;
+	margin-left: 0px;
+}
+#translatedTopicOutOfDate .translatedOutOfDate2 {
+	position:relative;
+	display:inline;
+	margin-right: 6px;
+	margin-left: 4px;
+}
+
+/*
+--------------------------------------------------------------------------------
+ Translated graphic out-of-date
+--------------------------------------------------------------------------------
+*/
+#translatedGraphicOutOfDate {
+	margin: 1em 0 0.5em 0;
+	padding: 0.4em;
+	color: #666666;
+	border: 1px solid #d12d39;
+	font-size:80%;
+}
+
+#translatedGraphicOutOfDate div {
+	margin: 0; 
+	text-align: left;
+	font-weight: normal;
+	color: #000000;
+	
+}
+
+/*
+--------------------------------------------------------------------------------
+ The disclaimer
+--------------------------------------------------------------------------------
+*/
+#disclaimer {
+	margin: 1em 0 0.5em 0;
+	padding: 0.4em;
+	color: #666666;
+	border: 1px solid #000000;
+	background-color: #eaeaea;
+}
+
+#disclaimerCalculator {
+	margin: 1em 0 0 0;
+	background-color: #eeeee0;
+	padding: 8px;
+}
+
+#disclaimerCalculator .copy {
+	text-align: center;
+}
+
+#disclaimerCalculator .header {
+	text-align: center;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#graphicDisclaimer {
+	margin: 1em 0 0.5em 0;
+	padding: 0.4em;
+	color: #666666;
+	border: 1px solid #000000;
+	background-color: #eaeaea;
+	font-size: 84%
+}
+
+/*
+--------------------------------------------------------------------------------
+ The developers info box
+--------------------------------------------------------------------------------
+*/
+#devInfo {
+	border: 1px solid #000000;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	font-size: 75%;
+	overflow: hidden;
+}
+
+#devInfo .title {
+	font-weight: bold;
+}
+
+#devInfo .devInfoRow {
+	clear: both;
+	padding-top: 0.5em;
+	color : #666666;
+	overflow: hidden; 
+}
+
+#devInfo .devInfoRow .label {
+	float: left;
+	width: 20%;	
+}
+
+#devInfo .devInfoRow .value {
+	float: left;
+	width: 80%;	
+}
+
+#devInfo .devInfoRow .noError {
+	background-color: #7CFC00;
+}
+
+#devInfo .devInfoRow .warning {
+	background-color: #FFA500;
+	color : #000000;
+}
+
+#devInfo .devInfoRow .error {
+	background-color: #FF2222;
+	color : #000000;
+}
+
+#devExtraDetails {
+	display: none;
+	position: fixed;	
+	padding: 8px;
+	width: 300px;
+	font-size: 13px;
+	font-style: normal;
+	text-align: justify;
+	line-height: 140%;
+	color: #000000;
+	background-color: #eeeeee; 
+	border: 1px solid #336633;				      
+	opacity: 0.95;
+	z-index: 1200;
+}
+
+#devExtraDetails p {
+	padding: 0;
+	margin: 0;
+}
+
+#devExtraDetails .devInfoRow {
+	clear: both;
+	overflow: hidden; 
+	padding-top: 1em;
+}
+
+#devExtraDetails .devInfoRow .label {
+	float: left;
+}
+
+#devExtraDetails .devInfoRow .value {
+	float: left;
+}
+
+/*
+--------------------------------------------------------------------------------
+ Print-specific rules.  These rules apply in the regular, non-print view, and
+ are overridden by the rules in the print stylesheet. 
+--------------------------------------------------------------------------------
+*/
+#printHeader {
+	display: none;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The contributors page
+--------------------------------------------------------------------------------
+*/
+#contributors {
+	font-size: 72%;
+	margin: 1em 1em 0 1em;
+	width:100%;
+}
+
+.contributors1 {
+	float:left;
+	width:50%;
+	border-right: 1px solid #C0C0C0;
+}
+
+.contributors2 {
+	float:left;
+	padding-left: 30px;
+}
+
+.verticalLine {
+    width: 1px; /* Line width */
+  background-color: black; /* Line color */
+  height: 100%; /* Override in-line if you want specific height. */
+  float: left; 
+}
+
+#contributors h1 {
+	font-size: 100%;
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+
+#contributors h2 {
+	font-size: 100%;
+	font-weight: bold;
+	margin: 1.6em 0 0 0.1em;
+}
+
+#contributors hr {
+   height:1px;
+    border:0px solid ;
+    border-top:1px solid #ccc;
+}
+
+
+#contributors .contributorName {
+	margin: 0.8em 0 0 1.5em;
+}
+
+#contributors .contributorCredential {
+	margin: 0.3em 0 0 2.3em;
+}
+
+#contributors .reviewerText {
+	font-style: italic;
+	margin: 0.5em 0 0 1.5em;
+}
+
+#contributors .reviewerLink {
+	margin: 0.5em 0 0 1.5em;
+}
+
+#contributors .disclosureLink {
+	margin: 1.2em 0 0 0;
+}
+
+#contributors .reviewerLink a, #contributors .disclosureLink a {
+	text-decoration: none;
+}
+
+#contributors .reviewerLink a:hover, #contributors .disclosureLink a:hover {
+	text-decoration: underline;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The peer reviewers page
+--------------------------------------------------------------------------------
+*/
+#peerReviewers {
+	font-size: 72%;
+	margin: 1em 1em 2em 1em;
+}
+
+#peerReviewers h1 {
+	font-family: arial, helvetica, verdana;
+	font-weight: bold;
+	font-size: 250%;
+	color: #346635;
+	margin: 1.3em 0 1.5em 0;
+}
+
+#peerReviewers h2 {
+	font-size: 125%;
+	margin: 0 0 1.6em 0;
+}
+
+#peerReviewers a {
+	text-decoration: none;
+}
+
+#peerReviewers a:hover {
+	text-decoration: underline;
+}
+
+#peerReviewers #allBoardsLink {
+	text-align: right;
+}
+
+#peerReviewers p {
+	margin: 0 0 0.5em 0;
+}
+
+#peerReviewers .contributorName {
+	margin: 1.3em 0 0 0;
+}
+
+#peerReviewers .contributorCredential {
+	margin: 0.5em 0 0 1.3em;
+}
+
+#peerReviewers .contributorDisclosure {
+	margin: 0.5em 0 0 1.3em;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The contributor disclosures page
+--------------------------------------------------------------------------------
+*/
+#contributorDisclosures {
+	font-size: 72%;
+	margin: 1em 1em 2em 1em;
+}
+
+#contributorDisclosures h1 {
+	font-weight: bold;
+	font-size: 100%;
+	margin: 1.5em 0 0.5em 0;
+}
+
+#contributorDisclosures .contributorName {
+	margin: 0;
+}
+
+#contributorDisclosures .contributorDisclosure {
+	margin: 0.5em 0 1.3em 1em;
+}
+
+#contributorDisclosures hr {
+	   height:1px;
+    border:0px solid ;
+    border-top:1px solid #ccc;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The abstracts page
+--------------------------------------------------------------------------------
+*/
+
+#abstracts {
+	font-size: 72%;
+	margin: 1em 1.5em 2em 1em;
+}
+
+#abstracts #abstractsToolbar {
+	text-align: right;
+	margin-right: 2em;
+}
+
+#abstracts .textLink {
+	vertical-align: 50%;
+	margin-right: 0.75em;
+}
+
+#abstracts img {
+	width: 24px;
+	height: 20px; 
+}
+
+#abstracts h1 {
+	font-size: 140%;
+	text-align: center;
+	margin: 1em 0 0 0;
+}
+
+#abstracts h2 {
+	font-size: 110%;
+	text-align: center;
+	margin: 0.2em 0 1.5em 0;
+}
+
+#abstracts .abstract {
+	border-top: 4px solid #000000;
+	padding: 0.4em 0 1em 0;
+}
+
+#abstracts .abstractRow {
+	clear: both;
+	padding-top: 0.4em;
+	overflow: hidden; 
+}
+
+#abstracts .abstractRow .label {
+	float: left;
+	width: 4%;
+}
+
+#abstracts .abstractRow .value {
+	float: left;
+	width: 96%;	
+}
+
+#abstracts .abstractRow .value .pubMed a.linkResolver{
+	vertical-align: -5px;
+	padding-left: 5px;
+}
+
+#abstracts .citationNumber {
+	font-weight: bold;
+	padding-top: 0.4em;
+}
+
+#abstracts .abstractText {
+	margin: 0.5em 0 0.5em 0;
+}
+
+#abstracts .abstractTextSection {
+	margin: 1.0em 0 0.5em 0;
+}
+
+#abstracts .noAbstract {
+	margin-top: 1em;
+}
+
+#abstracts .ovidLink{
+	text-decoration : underline; 
+	cursor: pointer; 
+	padding-right: 5px;
+}
+
+#abstracts .links{
+	float: left;	
+}
+
+#abstracts #ovidDialog{
+  	position:absolute;
+  	left:0;
+  	top:0;
+  	width:440px;
+  	height:200px;
+  	display:none;
+  	z-index:9999;
+    background:#FFFFFF;
+}
+
+#abstracts #ovidDialog #ovidDialogTitle{
+  	padding:10px;
+	background: url(../images/ovid-popup-back.png) no-repeat top right;
+	font-weight: bold;
+	font-size: 14px;
+	color: #555;
+	height: 21px;
+}
+
+#ovidDialogTitle #close {
+	float: right !important;
+	font-size: 11px;
+	text-decoration: none;
+	padding-right: 22px;
+	background: url(../images/ovid-popup-close.png) no-repeat 100% 100%;
+	display: inline-block;
+	height: 14px;
+}
+
+#abstracts #ovidDialog #ovidDialogInstruction{
+  	padding:10px;
+	color: #555;
+}
+
+#abstracts #ovidDialog #ovidDialogLinks{
+  	padding:10px;
+}
+
+#abstracts #ovidMask {
+  	position:absolute;
+  	left:0;
+  	top:0;
+  	z-index:9000;
+  	background-color:#000000;
+  	display:none;
+}
+
+
+/*
+--------------------------------------------------------------------------------
+ Drug Disclaimer Light Box
+--------------------------------------------------------------------------------
+*/
+#drugDisclaimDialog{
+  	position:absolute;
+  	left:0;
+  	top:0;
+  	width:485px;
+  	height:370px;
+  	display:none;
+  	z-index:9999;
+    background: #FFFFFF no-repeat top right;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 20px 20px 5px 20px;
+    
+}
+
+#drugDisclaimMask {
+  	position:relative;
+  	left:0;
+  	top:0;
+  	z-index:9000;
+  	background-color:#000000;
+  	display:none;
+  	cursor: pointer;
+  	
+}
+
+#drugDisclaimDialog #drugDisclaimButtons{
+	margin-left: auto;
+	margin-right: auto;
+	width: 15%;
+}
+
+#drugDisclaimDialog p{
+	margin-top: 0px;
+}
+
+#drugLogo{
+	float: left;	
+	padding-right: 5px;
+	background: url('../images/lexiComp/Lexicomp_sprite_2012.gif') no-repeat 0px -17px;
+	width: 118px;
+	height:28px;
+}
+
+/*
+--------------------------------------------------------------------------------
+ The graphics page
+--------------------------------------------------------------------------------
+*/
+#graphics.tableScroll{
+	overflow: visible;	
+}
+
+#graphics #graphicsToolbar {
+	margin: 1em;
+	overflow: hidden;
+}
+
+#graphics #graphicsCopy {
+	float: left;
+	width: 25%;
+	font-size: 72%;
+}
+
+#graphics #graphicsLinks {
+	float: right;
+	text-align: right;
+}
+
+#graphics .textLink {
+	vertical-align: 50%;
+	margin-right: 0.75em;
+}
+
+#graphics #graphicsLinks img {
+	width: 24px;
+	height: 20px; 
+}
+
+#graphics .graphic {
+	margin: 0;
+	padding: 0 10px;
+}
+
+#graphics .graphic2 {
+	margin: 0;
+	padding: 0 10px;
+	overflow: hidden;
+}
+
+#graphics .graphic .figure {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#graphics .graphic2 .figure {
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#graphics .graphic2 .movie {
+	float: left;
+	margin: 1.2em 20px;
+	padding-top: 2em;
+}
+
+/* TODO MRC: remove these 4 rules when they get in UTD_gx_gen.css */ 
+.figure .contractual a { 
+  color: #336633;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+.figure .contractual a:link { 
+  color: #336633;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+.figure .contractual a:visited { 
+  color: #336633;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+.figure .contractual a:hover { 
+  text-decoration: underline; 
+}
+
+
+/* Sample Topic Promo Bar Styles */
+.sampletopic #topicContent .headingAnchor {
+	padding-top: 335px; 
+	margin-top: -335px;
+}
+
+.wk-header.sampletopic #topicContent .headingAnchor {
+	padding-top: 370px; 
+	margin-top: -370px;
+}
+
+div#sampletopicpromo {
+	position: fixed;
+	top: 69px;
+	height: 206px;
+	overflow: hidden;
+	width: 100%;
+	padding: 10px 0;
+	font-family: Arial, sans-serif;
+	background: white url(../images/sample_topic/back_top.png) repeat-x top center;
+}
+
+.wk-header div#sampletopicpromo {
+	top: 133px;	
+}
+
+.warningMsgST.wk-header div#sampletopicpromo {
+	top: 175px;	
+}
+
+div#sample_controls {
+	display: inline-block;
+	float: right;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
+
+div#sample_controls div#sample_lang_holder, div#sample_controls span#sample_close {
+	float: right;
+}
+
+div#sample_lang_holder {
+	width: 109px;
+	height: 30px;
+	background: url(../images/sample_topic/language_back.png) no-repeat;
+	position: relative;
+	top: -4px;
+	left: -4px;
+}
+
+div#sample_lang_holder select {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+div#sample_controls span#sample_close {
+	display: block;
+	width: 23px;
+	height: 22px;
+	overflow: hidden;
+	cursor: pointer;
+	background: url(../images/sample_topic/close_button.png) no-repeat;
+	text-indent: -98765px;
+	margin-left: 10px;
+}
+
+div#sample_controls span#sample_close:hover {
+	background-position: 0px -22px;
+}
+
+div#sample_controls select#sample_lang {
+	font-size: 11px;
+	padding: 2px 2px 2px 2px;
+	border: 1px solid #666;
+	background: white;
+}
+
+div.sample_container {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div.sample_content {
+	width: 650px;
+	background: url(../images/sample_topic/greenbox_top.png) no-repeat;
+	padding: 10px 10px 5px;
+	float: left;
+	position: relative;
+}
+
+div.sample_content h3 {
+	font-family: Tahoma, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	padding-bottom: 5px;
+	margin: 0;
+}
+
+div.sample_action {
+	float: right;
+	width: 289px;
+	background: url(../images/sample_topic/silverbox_bot.png) no-repeat bottom;
+	position: relative;
+	padding: 10px;
+	text-align: center;
+}
+
+div.sample_content div.left {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	width: 300px;
+	float: left;
+	margin-top: 10px;
+}	
+
+div.sample_content div.left ul {
+	list-style-type: none;
+	margin: 0 0 0 5px;
+	padding:0;
+}
+
+div.sample_content div.left ul li {
+	font-family: Tahoma, Arial, sans-serif;
+	background: url(../images/sample_topic/checkbox.gif) no-repeat 0px 0px;
+	padding: 0 0 8px 26px;
+	width: 260px;
+	float: left;
+	line-height: 15px;
+}
+
+div.sample_content p {
+	margin: 8px 0 5px 5px;
+	font-size: 14px;
+	}
+
+
+div.sample_content div.right {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	width: 340px;
+	float: left;
+	margin-top: 10px;
+}	
+
+div.sample_content div.right ul {
+	list-style-type: none;
+	margin: 0 0 0 5px;
+	padding: 0;
+}
+
+div.sample_content div.right ul li {
+	font-family: Tahoma, Arial, sans-serif;
+	background: url(../images/sample_topic/checkbox.gif) no-repeat 0px 0px;
+	padding: 0 0 8px 26px;
+	width: 300px;
+	float: left;
+	line-height: 15px;
+}
+
+div.sample_content div.right p {
+	margin: 15px 0 8px 20px;
+	font-size: 14px;
+	}
+
+span.sample_content_bottom {
+	display: block;
+	line-height: 0;
+	font-size: 0;
+	overflow: hidden;
+	width: 670px;
+	height: 4px;
+	background: url(../images/sample_topic/greenbox_bot.png) no-repeat;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+span.sample_action_top {
+	display: block;
+	line-height: 0;
+	font-size: 0;
+	overflow: hidden;
+	width: 309px;
+	height: 5px;
+	background: url(../images/sample_topic/silverbox_top.png) no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+div.sample_action h3 {
+	margin: 5px 0;
+	padding: 0;
+	color: #2b8554;
+	font-family: Tahoma, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+div.sample_action a {
+	display: block;
+	margin: 10px auto 10px;
+	width: 206px;
+	height: 35px;
+	text-decoration: none;
+	background: url(../images/sample_topic/subscribenow.png) no-repeat;
+	font-family: Arial, sans-serif;
+	color: white;
+	text-shadow: 1px 1px 0px #a95d1a;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	text-transform: uppercase;
+	padding-top: 15px;
+}
+
+div.sample_action a:hover {
+	background-position: 0px -50px;
+}
+
+div.sample_container {
+	display: none;
+}
+
+div.showSample {
+	display: block;
+}
+
+/* Translation specific tweaks */
+
+div#sample_french div.left {
+	font-size: 14px;
+	width:234px;
+}
+
+div#sample_french div.left ul li {
+	width: 199px;
+}
+
+div#sample_french div.right {
+	font-size: 14px;
+	width: 408px;
+}
+
+div#sample_french div.right ul li {
+	width: 373px;
+}
+
+div#sample_german div.left {
+	font-size: 14px;
+}
+
+div#sample_german div.right {
+	font-size: 14px;
+}
+
+div#sample_italian div.left {
+	font-size: 14px;
+	width:234px;
+}
+
+div#sample_italian div.left ul li {
+	width: 199px;
+}
+
+div#sample_italian div.right {
+	font-size: 14px;
+	width: 408px;
+}
+
+div#sample_italian div.right ul li {
+	width: 373px;
+}
+
+div#sample_japanese div.left {
+	font-size: 14px;
+}
+
+div#sample_japanese div.right {
+	font-size: 14px;
+}
+
+div#sample_spanish div.left {
+	font-size: 13px;
+	width:174px;
+}
+
+div#sample_spanish div.left ul li {
+	width: 139px;
+}
+
+div#sample_spanish div.right {
+	font-size: 13px;
+	width: 468px;
+}
+
+div#sample_spanish div.right ul li {
+	width: 433px;
+}
+
+
+/* End Sample Topic */
+
+/* Back to Search */
+div#backtosearch_container {
+	position: absolute;
+	top: 69px;
+	width: 100%;
+	height: 30px;
+	background: white url(../images/sample_topic/back_top.png) repeat-x top center;
+}
+
+div#backtosearch_container a#backtosearch {
+	background: black url(../images/backtosearch.png) no-repeat top left;
+	font-size: 11px;
+	color: white;
+	padding: 4px 10px 5px 30px;
+	text-decoration: none;
+	line-height: 14px;
+	position: relative;
+	font-family: Arial, sans-serif;
+	text-shadow: 1px 1px 0px black;
+	visibility: hidden;
+	display: inline-block;
+}
+
+div#backtosearch_container a#backtosearch:hover {
+	background-position: 0 -23px;
+}
+
+div#backtosearch_container a#backtosearch span#backtosearch_dot {
+	font-size: 0;
+	line-height: 0;
+	position: absolute;
+	overflow: hidden;
+	bottom: 0;
+	right: 0;
+	background: white;
+	width: 1px;
+	height: 1px;
+}
+
+.backtosearch #topicContent .headingAnchor {
+	padding-top: 130px; 
+	margin-top: -130px;
+}
+
+.backtosearch #topicContent .drugH1Div {
+	padding-top: 130px; 
+	margin-top: -120px;
+}
+
+/*
+ * Warning message
+*/
+.warningMsg #topicContent .headingAnchor {
+	padding-top: 151px; 
+	margin-top: -151px;
+}
+.backtosearch.warningMsg #topicContent .headingAnchor {
+	padding-top: 171px; 
+	margin-top: -171px;
+}
+
+/* New topic Feedback */
+
+/* Right-side feedback */
+#topicFeedbackBug {
+	position: fixed;
+	right: 0px;
+	bottom: 100px;
+	display: block;
+	width: 24px;
+	height: 105px;
+	background: url(../images/ui-sprite.png) -505px -193px;
+	overflow: hidden;	
+	text-indent: -98765px;
+	z-index: 101;
+}
+
+#topicFeedbackBug:hover {
+	width: 26px;	
+	background-position: -529px -193px;
+}
+
+	.ui-zh_Hans #topicFeedbackBug {
+/*		background-position: -779px -193px; */
+	}
+	
+	.ui-zh_Hans #topicFeedbackBug:hover {
+/*		background-position: -803px -193px; */
+	}
+
+/* Bottom-side feedback */
+/* Simplified Chinese overrides */
+.tl-zh-Hans .sr_button{
+	font-size: 12px;
+}
+
+.tl-zh-Hans #topicOutline h1 {
+	font-size: 92%;
+}
+
+.tl-zh-Hans #topicOutline .graphics_icon{
+	font-size: 12px;
+}
+/* End Simplified Chinese overrides */
+
+
+/* US4736 - Disclosures scroller */
+.disc-over #disclosures-scroller p {
+    margin-top: 0;
+}
+#topicContent p {
+    line-height: 140%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#disclosures-scroller p {
+    font-size: 11px;
+    line-height: 11px;
+    margin: 1px 0;
+}
+.disc-over:hover {
+    background: none repeat scroll 0 0 #F6F6F6;
+}
+.disc-over #disclosures-scroller {
+    height: 40px;
+    overflow: auto;
+}
+#topicContent #disclosures {
+    text-align: left;
+}
+.disc-over {
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    height: 40px;
+/*  overflow: hidden;  */
+    padding: 4px;
+}
+.disc-over #disclosures-scroller p {
+    margin-top: 0;
+}
+#topicContent #disclosures {
+    text-align: left;
+}
+.disc-over {
+    cursor: pointer;
+}
+.disc-over #disclosures-scroller {
+    height: 40px;
+    overflow: auto;
+}
+#disclosures-scroller {
+	float:left;
+  	line-height: 120%;
+	font-weight:normal;  	
+  	display:inline;
+  	width:100%;
+    word-wrap:break-word;
+}
+#disclosures-scroller p {
+	float:left;
+  	line-height: 120%;
+	font-weight:normal;  	
+  	display:inline;
+  	width:100%;
+    word-wrap:break-word;
+    margin: 1px 0 0 !important;
+}
+#disclosures-scroller .disclosureTitle {
+	font-weight:bold;
+	font-style:italic;
+}
+.contributorDisclosureInfo {
+	padding:1px 0 2px 0;
+}
+.contributorDisclosurePolicy {
+	padding:0 0 10px 0 !important;
+	font-weight:bold;
+	
+}
+.contributorDisclosurePolicy a {
+	text-decoration: none;
+	font-weight:bold;
+	color: #336633;
+}
+.contributorDisclosurePolicy a:hover {
+	text-decoration: underline;
+}
+
+#conflictPolicy {
+    clear: both;
+    margin: 0;
+    overflow: visible;
+    padding: 0 1em;
+}
+#conflictPolicy {
+    font-size: 84%;
+    text-align: left;
+    word-wrap: break-word;
+}
+#printDisclosures {
+    clear: both;
+    margin: 0;
+    overflow: visible;
+    padding: 0 1em;
+	font-size: 84%;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+#bottomPanel #printDisclosures h1 {
+	font-size: 120%;
+	color:#336633;
+}

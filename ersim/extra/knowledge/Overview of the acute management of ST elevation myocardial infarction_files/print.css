@@ -1,0 +1,386 @@
+html, body { 
+	overflow: visible;
+}
+
+#topPanel, 
+#leftPanel, 
+#dragbar, 
+#helpImprove, 
+#helpImproveResponseYes, 
+#helpImproveResponseNo, 
+#versionDetails, 
+#sessionHistory, 
+#findInPage, 
+#graphicsToolbar, 
+#abstractsToolbar, 
+#allBoardsLink,
+#devInfo, 
+#patTopicRight,
+#patTopicToolTop,
+#patTopicToolBottom,
+#patTopicSubscribe,
+#topicOutline,
+#basicsTopicRight
+{
+	position: static;
+	visibility: hidden;
+	display: none;
+}
+
+ 
+#basicsTopicLeft 
+{
+	margin-right: 0px;
+}
+
+
+#rightPanel, #bottomPanel, #patTopicLeft, #patTopicMiddle, #patTopicMinWidth, div.fixedFooter {
+	position: static;
+	width: 100%; 
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+	left: auto;
+	right: auto;
+	top: auto;
+	bottom: auto;
+}
+
+#footer {
+	display : none; 
+}
+
+#footer #footerNav, #footer #footerLogo{
+	display: none;	
+}
+
+#patTopicMinWidth {
+	min-width: 0;
+}
+
+#printHeader {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	display: block;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 84%;
+}
+
+#printHeader #printHeaderLogo {
+	float: left;
+	width: 86%;
+	padding: 1em 0 0 1em;
+}
+
+#printHeader #printHeaderLogo .imageLeft {
+	float:left;
+}
+
+#printHeader #printHeaderLogo .imageRight {
+	float:right;
+}
+
+#printHeader #printHeaderLogo #printCobrandingLogoImage {
+	/* Defines the space between the UpToDate logo and the co-branding logo, if any. */
+	margin: 0 0 0 29px;
+}
+
+#printHeaderText {
+	float: left;
+	width: 60%;
+	text-align: left;
+	padding: 0 0 2em 1em;
+}
+
+#printHeader #printHeaderWKLogo {
+	float: left;
+	width: 12%;
+	padding: 1em 1em 0 29em;
+	text-align: center;
+}
+
+#printHeader #printHeaderLinks {
+	float: right;
+	width: 8%;
+	padding: 1em 3em 0 0;
+	text-align: right;
+}
+
+#printHeader #printHeaderLinks a {
+	font-size: 10px;
+	text-decoration: none;
+}
+
+#printHeader #printHeaderLinks a:hover {
+	text-decoration: underline;
+}
+
+#printHeader .pipeSpace {
+	color: #AFAF79;
+	margin-left: 9px;
+	margin-right: 9px;
+}
+
+#printGraphics {
+	display: block;
+	margin: 2em 0 0 0;
+	padding: 0 1em 0 1em;
+	page-break-before: always; 
+}
+
+#printGraphics h1 {
+	font-size: 100%;
+}
+
+#printControls {
+	display: block;
+	position: fixed;
+	top: 4em;
+	right: 2em;
+	background-color: #CAE1CA;
+	border: 2px solid #009966;
+	font-size: 12px;
+	padding: 0.25em 0.35em;
+}
+
+#printControls h1 {
+	margin: 0 0 0.2em 0;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#printControls .row {
+	clear: both;
+	padding-top: 0.4em;
+	overflow: hidden; 
+}
+
+#printControls .row .label {
+	float: left;
+	width: 76px;	
+}
+
+#printControls .row .value {
+	float: left;
+}
+
+#printControls #etacLanguage {
+	width:150px;
+}
+
+#printControls #printHeaderLinks {
+	text-align:center;
+	margin-top:4px;
+}
+
+#printControls #printHeaderLinks .button {
+	display:block;
+	border:1px solid #333;
+	width:74px;
+	font-size:12px;
+	font-weight:bold;
+	color:#fff;
+	text-shadow:1px 1px #777;
+	float:left;
+	padding:3px 0;
+	text-decoration:none;
+}
+
+#printControls #printHeaderLinks .button.orange {
+	border:1px solid #DC7E04;
+	background: #e59d41; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e59d41 0%, #c16d00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e59d41), color-stop(100%,#c16d00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e59d41 0%,#c16d00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e59d41 0%,#c16d00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e59d41 0%,#c16d00 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e59d41 0%,#c16d00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e59d41', endColorstr='#c16d00',GradientType=0 ); /* IE6-9 */
+}
+
+#printControls #printHeaderLinks .button.grey {
+	border:1px solid #A2A1A0;
+	background: #c3c2bf; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c3c2bf 0%, #b3b1ad 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c3c2bf), color-stop(100%,#b3b1ad)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c3c2bf 0%,#b3b1ad 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c3c2bf 0%,#b3b1ad 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c3c2bf 0%,#b3b1ad 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c3c2bf 0%,#b3b1ad 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c3c2bf', endColorstr='#b3b1ad',GradientType=0 ); /* IE6-9 */
+}
+
+#printControls #printHeaderLinks .padlft8 {
+	margin-left:8px;
+}
+
+#topicContent {
+	margin: 0;
+	padding: 0 1em 0 1em;
+	clear: both;
+	overflow: visible;	
+}
+/* IMM052312#16533 >>> */
+#topicContent ul.hyphen-block li {
+	list-style-type:disc;
+	/*position:relative;*/
+	margin-left:22px;
+	padding:2px 0 2px 3px;
+}
+#topicContent ul.hyphen-block li img.bltDash {
+	position:absolute;
+	left:-12px;
+	top:11px;
+}
+
+/* <<< IMM052312#16533 */
+#graphics {
+	margin: 0;
+	padding: 0;
+	clear: both;	
+}
+
+#topicTitle {
+	color: #D7833D;
+	margin: 1em 0 0 0;
+	padding: 0;	
+	font-size: 18px;
+	line-height: 100%;
+}
+
+#patTopicTitle {
+	margin: 0;
+	padding: 0 0.5em 1em 0.5em;
+}
+
+#patTopicContributors {
+	margin: 0;
+	background-color: #ffffff;
+}
+
+#patTopicContributors .rcTop, #patTopicContributors .rcBottom  {
+	display: none;
+}
+
+#patTopicLastUpdated, #disclaimer  {
+	margin: 1em 1em 0 1em;
+}
+
+#patTopicRefHeader {
+	margin: 1em 0 0 1em;
+	background-color: #ffffff;
+	border: none;
+	width: auto;
+}
+
+#patTopicRefHeaderTop {
+	display: none;
+}
+
+#patTopicMiddle .patTopicContinued {
+	margin-left: 1em;
+}
+
+p{
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+#topicContent p.bulletIndent1, 
+#topicContent p.bulletIndent2, 
+#topicContent p.bulletIndent3 {
+	margin-top: 2px !important;
+	margin-bottom: 2px !important;
+}
+
+#tocTable h1 {
+	color: #D7833D;
+	margin-top: 0px;
+	margin-bottom: 16px;
+	font-size: 16pt;
+	line-height: 32px;
+	padding: 0px 0px 0px 0px;
+}
+
+#tocTable a {
+	text-decoration: underline;
+	font-size: 10pt;
+}
+
+.account table {
+	border-collapse: inherit;
+}
+
+.green {
+	color: #019E30;
+}
+
+.printCme a {
+	text-decoration: underline;	
+}
+
+.printCme a:hover {
+	text-decoration: none;	
+}
+
+.printCme #printHeaderText, 
+.printCme #printHeaderBack, 
+.printCme #printHeaderPrint + .pipeSpace{
+	display: none;
+}
+
+.printCme #printHeader #printHeaderLinks{
+	float: right;	
+}
+
+.printCme li {
+	list-style-type: none;	
+}
+
+#translatedTopicOutOfDate {
+	padding: 0.4em 0.4em 0.4em 0.8em;
+	margin: 1.0em;
+	color: #666666;
+	border: 1px solid #D12D39;
+/*	background-color: #eaeaea;  */
+}
+
+#translatedTopicOutOfDate div {
+/*	margin: 0 !important; */
+	text-align: left;
+	font-weight: normal;
+}
+
+#translatedGraphicOutOfDate {
+	padding: 0.4em;
+	margin: 1.0em 0 0.5em 0;
+	color: #000000;
+	border: 1px solid #D12D39;
+	font-size: 80%;
+/*	background-color: #eaeaea;  */
+}
+
+#translatedGraphicOutOfDate div {
+	margin: 0 !important;
+	text-align: left;
+	font-style:normal;
+	font-weight: normal;
+}
+.translatedOutOfDate {
+	position:relative;
+	display:inline;
+	margin-right: 16px;
+	margin-left: 6px;
+}
+
+#graphicDisclaimer {
+	margin: 1em 0 0.5em 0;
+	padding: 0.4em;
+	color: #666666;
+	border: 1px solid #000000;
+	background-color: #eaeaea;
+	font-size: 84%
+}

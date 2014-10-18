@@ -1,0 +1,804 @@
+/* Search Auto-Complete Styles */
+#autoCompleteList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0;
+	width: 269px;
+	background: #fff;
+	position: fixed;
+	_position: absolute;
+	border:0;
+	xborder: 1px solid #aaa;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-moz-box-shadow: 0px 2px 4px #999999;
+	box-shadow: 0px 2px 4px #999999;
+	display: none;
+	z-index: 5000;
+}
+html.ie #autoCompleteList {
+	border:1px solid #ccc;
+}
+
+#autoCompleteList.noBoxShadow {
+	box-shadow:none;
+	border:1px solid #aaa;
+}
+	
+/* search landing page */
+#bottomPanel #autoCompleteList{
+	position: absolute;	
+}
+
+#autoCompleteList li {
+	margin: 0px;
+	padding: 5px 22px 5px 6px;
+	font-size: 12px;
+	border-top: 1px dotted #d9d9d9;
+	font-weight: bold;
+}
+
+#autoCompleteList li:first-child {
+	border-top: none;	
+}
+
+#autoCompleteList li:hover {
+	background: #ebf0f4;
+	background: -moz-linear-gradient(top,  #ebf0f4 0%, #d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf0f4), color-stop(100%,#d9ecf9)) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -webkit-linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -o-linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -ms-linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf0f4', endColorstr='#d9ecf9',GradientType=0 );
+	cursor: pointer;
+}
+
+#autoCompleteList li.active {
+	background: #ebf0f4 url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -moz-linear-gradient(top,  #ebf0f4 0%, #d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf0f4), color-stop(100%,#d9ecf9)) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -webkit-linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -o-linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: -ms-linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	background: linear-gradient(top,  #ebf0f4 0%,#d9ecf9 100%) url(../images/acarrow.png) no-repeat 98% 50%;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf0f4', endColorstr='#d9ecf9',GradientType=0 );
+	cursor: pointer;
+}
+
+#autoCompleteList li a {
+	cursor: pointer;	
+	color: #118EE2;
+}
+
+#autoCompleteList li a {
+	text-decoration: none;
+	margin-left: 10px;
+	font-size: 10px;
+}
+
+#autoCompleteList li a:hover {
+	border-bottom: 1px dotted #118ee2;
+}
+
+#autoCompleteList .acHistory{
+	color:#52188C;
+}
+
+#autoCompleteList li .ac_highlight {
+	font-weight: normal;	
+}
+
+.fixedTop #header2 #tier4 {
+	position:fixed;
+	top:30px;
+	width:100%;
+	z-index:6;
+}
+#rateTrans{
+	top:145px;
+}
+.fixedTop #rateTrans {
+	top:27px;
+}
+
+#srNums {
+	width: 100%;
+	border-top: 1px solid #ddd;
+}
+
+#searchResults {
+	position: relative;
+	overflow:inherit;
+}
+
+#searchResults.HL7 {
+	background: none;
+}
+
+#searchResults ul {
+	list-style-type: none;
+	font-size: 84%;
+	margin: 0;
+	padding: 0;
+}
+
+#searchResults li {
+	background: none;
+	line-height: 100%;
+	list-style-position: initial;
+}
+#resultList > ul > li {
+	line-height:140%;
+	padding-right:14px;
+}
+
+#searchResultHeader {
+	width:100%;
+	float: none;
+}
+.gfxSearch #searchResultHeader {
+	width:100%;
+}
+#searchResultLabel {
+	font-weight: bold;	
+}
+#searchResultHeader .fadeTop {
+	padding-left:0;
+	margin-top:0;
+	height: 13px;
+	padding-left: 14px;
+	background-repeat:repeat-x;
+	background-image: url('../../../images/fade_top_bg_ss3.gif');
+}
+#searchResultHeader .headerMid {
+	padding-top:0;
+	width:98%;	
+	background-color:#fff;
+	background-image: none;
+	background-repeat: no-repeat;
+}
+#searchResultHeader #headerBtnBgMid {
+	height:5px;
+	border-bottom: 1px solid #ddd;
+}
+	
+#topicOutlineHeader {
+	width:35%;
+	float:right;
+}
+#topicOutlineHeader .topicOutlineGradient {
+	margin-top:0;
+}
+
+#searchResults .noResults {
+	margin-left:165px;
+}
+#searchResults .noResults .suggestions {
+	margin-left:0;
+	margin-top:0;
+	padding-top:15px;
+}
+#searchResults .noResults .suggestLabel {
+	margin-left:0;
+}
+
+#searchResults .noResults + #resultList {
+	padding-bottom:73px;
+}
+
+#searchResults .noResults + #resultList #srNums{
+	border: 0;	
+}
+
+#searchResults #graphics_search_thumbs .noResults {
+	height:141px;
+	margin-left:5px;
+}
+
+#search_sidebar {
+	width: 150px;
+	padding: 0;
+	top:0px;
+	z-index:5;
+	border-right:1px solid #dcdcdc;
+}
+#search_sidebar ul {
+	width:151px;
+}
+	
+.fixedTop #search_sidebar {
+	position:fixed;
+	top:66px;
+}
+
+#search_sidebar ul li.active {
+	background-color: #FFFFFF;
+	background-position: 16px -73px;
+}
+
+#search_sidebar ul li.active:hover {
+	background-color: #FFFFFF;
+	background-position: 16px -98px;
+}
+
+#search_sidebar ul li.active a {
+	color: #000000;
+}
+
+#search_sidebar li {
+	padding: 5px 0 8px 28px;
+	background: url("../../../images/utd-radio-buttons.png") no-repeat scroll 16px 7px transparent;
+	cursor: pointer;
+}
+
+#search_sidebar li:hover{
+	background-position: 16px -18px;
+}
+
+#search_sidebar li:active{
+	background-position: 16px -43px;
+}
+
+#search_sidebar ul li.active:active{
+	background-position: 16px -123px;
+}
+.normalResult .sr_button_group {
+	display:none;
+}
+.sr_button_group {
+	white-space: nowrap;
+	margin-left: 4px;	
+	display: inline-block;
+}
+
+.sr_button_group span {
+	display: inline-block;
+	width: 17px;
+	height: 13px;
+	margin: 0 4px;
+	cursor: pointer;
+	font-size: 11px;
+	line-height: 12px;
+}
+
+.sr_button_group .sr_button_graphics {
+	xbackground: url(../../../images/ui-sprite.png) no-repeat -182px -209px;	
+	width: auto;
+	font-size: 11px;
+	xpadding-left: 20px;
+	color: #336633;
+	display: none;
+	font-weight: normal;
+	xborder-bottom: 1px dotted #7c8eaf;
+}
+
+.sr_button_group .sr_button_graphics:hover {
+	color: #336633;
+	border-bottom: 1px dotted #336633;	
+}
+
+.sr_button_group .sr_button_graphics:active {
+	xbackground: url(../../../images/ui-sprite.png) no-repeat -182px -226px;	
+}
+
+	.sr_button_group .sr_button_graphics.disabled,
+	.sr_button_group .sr_button_graphics.disabled:hover,
+	.sr_button_group .sr_button_graphics.disabled:active {
+		color:#ddd;
+		border-bottom:0px;
+	}
+	
+#resultList {
+	max-width: 600px;
+	padding: 0 20px 40px 160px;
+	margin-left: 0px;
+}
+
+#resultList li {
+	border-top: 1px solid #ddd;	
+	padding: 6px 10px 4px;	
+	clear: left;
+}
+
+#resultList .ml_inline_graphic {
+	xborder: none;
+	xpadding: 0;
+	xmargin: 5px 35px 20px 10px;
+    xdisplay: block;
+    xfloat: left;
+    xclear: none;
+    xwidth: 155px;
+    display: none;
+}
+
+#searchResults .ml_inline_graphic a {
+	color: #336633;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    overflow: hidden;
+    font-weight: normal;
+}
+
+#searchResults .ml_inline_graphic a span {
+	border: 1px solid #E8E8E8;
+    box-shadow: 4px 4px 4px #AAAAAA;
+    display: block;
+    height: 145px;
+    width: 145px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.ml_inline_graphic img {
+	float: none;	
+}
+
+#search_sidebar.HL7 {
+	display: none;
+}
+
+#searchResults.HL7 #resultList {
+	padding-left: 0px;
+}
+
+#resultList ul > li:first-child {
+	border-top: none;	
+}
+
+#resultList li li {
+	border-top: none;	
+	padding: 4px 0 4px 20px;
+}
+
+#searchResults #resultList > ul > li ul.subhits {
+	padding-top:4px;
+}
+
+.routedDrugResult {
+	margin-bottom: 14px;
+}
+
+#searchResults .routedDrugResult .ml_section {
+	display: none;
+}
+
+#searchResults .routedDrugResult ul.subhits li {
+	clear: none;
+	margin-left: 3px;
+}
+
+.drugRoutePipe{
+	display: inline-block;
+}
+
+#searchResults .drugRoutes{
+	padding-top: 5px;	
+}
+
+#searchResults .drugRoutes li{
+	display: inline-block;
+	float: none;
+}
+
+#searchResults li a, #searchResultNums a {
+	color: #336633;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.ja #searchResults li a, .ja #searchResultNums a {
+	font-weight: normal;
+}
+
+#searchResults li li a {
+	font-size: 12px;
+}
+
+.sectionSnippet .moreLink {
+	color: #118EE2;	
+	font-weight: normal !important;
+}
+
+.drugRouteTopic{
+	font-weight: 700;
+}
+
+#searchResults .sectionSnippet .h1 a {
+	font-size: 12px;	
+	background: url("../../../images/ui-sprite.png") no-repeat scroll -996px -190px transparent;
+	padding-left: 16px;
+	margin-left: -16px;
+}
+
+#searchResults .subhits li a, #searchResults .sectionSnippet a {
+	color: #006CB5;	
+}
+
+#searchResults .subhits li a.drugRouteResult {
+	color: #336633;
+}
+
+#searchResults .drugRouteResult {
+	font-size: 13px;
+}
+
+#searchResults .subhits li a:active, #searchResults .sectionSnippet a:active {
+	color: #425c8d;	
+}
+
+#searchResults li .subhits .ml_graphic {
+	background: url(../../../images/ui-sprite.png) no-repeat -992px -222px;	
+}
+
+#searchResults li .subhits .ml_section {
+	background: url(../../../images/ui-sprite.png) no-repeat -992px -188px;		
+}
+
+#searchResults li .subhits .ml_section a, #searchResults li  .subhits .ml_graphic a {
+	font-weight: normal !important;	
+}
+
+.sectionSnippet {
+	xmargin: 0;
+	xpadding-bottom: 0 !important;	
+	display: none;
+}
+
+.sectionSnippet p {
+	color: #333;
+	font-size: 12px;
+	line-height: 14px;
+	margin-top: 0;
+	xxdisplay: inline;
+}
+
+.sectionSnippet p span {
+	font-weight: bold;	
+}
+
+#searchResultNums{
+	font-size: 84%;
+	font-weight: bold;
+	text-align: center;
+	width: 530px;
+	padding: 10px 10px 30px;
+}
+
+#searchResultNums span {
+	display: inline-block;
+	padding: 5px 10px;	
+	margin: 0 2px;
+}
+
+#searchResultNums a span {
+	border: 1px solid #eee;	
+}
+
+#searchResultNums a:hover span {
+	background: #eee;
+	border: 1px solid #ddd;	
+	cursor: pointer;
+}
+
+#searchResultNums a:hover {
+	text-decoration: none;	
+}
+
+.wk-header #searchResults li a, .wk-header #searchResultNums a {
+	color: #00A160;
+}
+
+.indSearchResultPreview{
+	background-color: #EAEAEA;
+}
+
+.drugRoute{
+	margin-right: -10px;
+}
+
+#topSearchBar a {
+	font-size:11px;
+	font-weight:bold;
+	line-height:22px;
+	padding:0 0 0 9px;
+	display:inline-block;
+	text-decoration:none;
+}
+#topSearchBar #smallSearchBox {
+	zoom:1;
+}
+#topSearchBar #browseTab {
+	background: url(../../../images/ui-sprite.png) no-repeat -1001px -361px;
+}
+#topSearchBar form {
+	float:left;
+	/* US6256  */
+	/* margin-right:15px; */
+	margin-right:25px;
+}
+html.ie8 #topSearchBar #new_search {
+	display:block;
+	float:left;
+}
+
+html.ie8 #topSearchBar #browseTab {
+	display:block;
+	float:left;
+}
+	
+#searchFooter #footer {
+	width:100%;
+	position:static;
+	z-index:9000;
+}
+/* ---------------------------------------------------------------------- */
+/* topicOutlinePreview - the right-hand panel in search results */
+/* ---------------------------------------------------------------------- */
+
+#topicOutlinePreview {
+	padding-top:5px;
+	z-index: 10;
+	text-align: left;
+	position: static;
+	vertical-align: top;
+	font-size: 75%;
+	margin-right: 10px;
+	background-color: inherit;
+}
+
+#topicOutlinePreview h2 {
+	font-size: 100%;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+}
+
+#topicOutlinePreview ul {
+	margin: -1px 0 0 0;
+	padding: 0;
+	color: #006cb5;
+}
+
+#topicOutlinePreview li#torSRLink {
+	display:block;
+}
+
+#topicOutlinePreview li a {
+	color: #006cb5;
+	text-decoration: none;
+}
+#topicOutlinePreview li a:hover { 
+	text-decoration: underline; 
+}
+
+#topicOutlinePreview li.plainItem {
+  padding-top: 2px;
+  padding-bottom:2px;
+  list-style-type: none;
+  font-weight: bold;
+  border-top: none;
+}
+
+#topicOutlinePreview li.bulletItem {
+  list-style-type: none;
+  background-image: url('../../../images/topic_outline_bull_search.gif');
+  background-position: 0px 4px;
+  background-repeat: no-repeat;
+  padding: 1px 0px 3px 10px;
+}
+
+#topicOutlinePreview li.dashItem {
+  list-style-type: none;
+  padding: 2px 0px 2px 12px;
+}
+
+#topicOutlinePreview li.bulletItem2 {
+  list-style-type: none;
+  background-image: url('../../../images/topic_outline_bull_search.gif');
+  background-position: 11px 50%;
+  background-repeat: no-repeat;  
+  padding: 2px 0px 2px 27px;
+}
+
+#topicOutlinePreview li.dashItem2 {
+  list-style-type: none;
+  padding: 2px 0px 2px 30px;
+}
+
+#noSearchResults{
+	font-weight: bold;	
+}
+
+.fixedBtm #searchFooter #footer {
+	position:fixed;
+	width:100%;
+	bottom:0;
+}
+
+/* Topic Outline Flyout */
+
+#outline_flyout {
+	border: 1px solid #cccccc;
+	background: #f3f6f3;
+	width: 300px;
+	min-height: 275px;
+	position: absolute;
+	border-radius: 4px;
+	box-shadow: 0px 4px 6px #888;
+	z-index: 5;
+	display: none;
+}
+
+#outline_flyout h5 {
+	height: 25px;
+	white-space: nowrap;
+	position:relative;
+    margin: 0;
+    padding: 10px 0 0 10px;	
+}
+	html.ie7 #outline_flyout h5,
+	html.ie8 #outline_flyout h5 {
+		letter-spacing:-0.1em;
+	}
+
+#outline_flyout h5 a {
+	display: block;
+	width: 16px;
+	height: 16px;
+	position:absolute;
+	top:10px;
+	right:0;
+	background: url(../../../images/ui-sprite.png) no-repeat -440px -233px;
+	text-indent: -99999px;
+	margin-right: 5px;
+}
+
+#outline_flyout_content {
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	margin: 0 5px 5px 10px;
+}
+
+	#outline_flyout_content #outline_flyout_mask {
+		left: 0px;
+		top: 36px;
+		position: absolute;
+		width: 283px;
+		height: 623px;
+		opacity: 0.80;
+		background-color:#fff;
+	}
+
+#searchResults li.outline_open {
+	background: #f7f7f7;
+}
+
+#searchResults .drugRoutes li.outline_open a {
+	background: #EAEAEA;
+}
+
+.outlineLoading {
+	background: url(../../../images/outline-loader.gif) no-repeat 50% 50%;
+}
+
+#outline_flyout_arrow {
+	width: 16px;
+	height: 35px;
+	background: url(../../../images/outline_arrow.gif) no-repeat;
+	position: absolute;
+	z-index: 5;
+	right: 295px;
+	display: none;
+}
+
+#toggleFlyout, #toggleSRView {
+	background: none;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px dotted green;
+	color: #598353;
+	xcolor: #598353;
+	float: right;	
+	margin: -3px 10px 0;
+	display: inline-block;
+	font-size: 11px;
+    overflow: hidden;  
+    cursor: pointer; 
+    outline:none; 
+}
+
+#toggleFlyout {
+	margin-left:100px;
+}
+
+#toggleFlyout:active, #toggleSRView:active {
+	color: #669966;	
+}
+
+.gfxSearch #toggleFlyout{
+	display: none;	
+}
+
+#instantSearch {
+	width: 60%;
+}
+
+#instantSearch #searchResults {
+	background: none;	
+}
+
+#instantSearch #searchResults #resultList {
+	padding: 0;	
+}
+
+#showMoreResults{
+	border: 1px #BCC9D8 solid;
+	cursor: pointer;
+	color: #1270B1;
+	font-weight: bold;
+	padding: 0 20px;
+	height: 30px;
+	background-color: #DFE7F2;
+	border-radius: 4px;
+}
+
+
+/* browse */
+#browseFlyout {
+	position: absolute;
+	z-index: 1000;
+	width: 635px;
+	height: 382px;
+	background: url(../../../images/browse-back.gif) no-repeat;
+	top: 50px;
+	left: 50px;
+}
+
+#bfCont {
+	background: white;	
+	width: 622px;
+	height: 363px;
+	overflow: auto;
+	border: 1px solid #7d8b96;
+	position: relative;
+	top: 11px;
+	left: 5px;
+	border-radius: 2px;
+}
+
+#browseFlyout h2 {
+	font-size: 13px;	
+	font-weight: bold;
+}
+
+#browseFlyout a {
+	display: block;	
+	text-decoration: none;
+	margin-bottom: 8px;
+	font-size: 13px;
+}
+
+#browseFlyout a:hover {
+	text-decoration: underline;	
+}
+#message-container dd#message-controls {
+	width: 762px;
+}
+
+/* Search Auto-Complete Styles */
+#autoCompleteList {
+	margin: 0 0 0 2px; 
+}
+
+/* DE3564 - adjust padding for autoCompleteList */
+#autoCompleteList li {
+	padding: 5px 22px 5px 4px; 
+}
