@@ -77,7 +77,11 @@ def knowledgebaseRoute():
 @app.route('/getKnowledge')
 @login_required
 def getKnowledgeRoute():
+<<<<<<< HEAD
 	return response.getKnowledge(current_user.uid, request.form['patientID'])
+=======
+	return response.getKnowledge(request.form['patientID'])
+>>>>>>> FETCH_HEAD
 
 @app.route('/test')
 def testRoute():

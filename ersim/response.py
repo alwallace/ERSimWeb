@@ -81,9 +81,19 @@ def getAssessment(userID, patientID):
 		unnecessaryTriggersD.append({"id":row[0], "trigger":row[1]})
 	
 	response.append({"missed":missedTriggersD, "matched":matchedTriggersD, "unnecessary":unnecessaryTriggersD})	
-
-	print response
 	return json.dumps(response)
+
+def getQuiz(userID, patientID):
+	response = []
+
+	return json.dumps(response)
+
+def getKnowledge(patientID):
+	response = []
+
+	return json.dumps(response)
+
+
 
 def getDiagnosisList():
 	response = []
