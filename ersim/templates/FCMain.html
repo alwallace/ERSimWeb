@@ -87,22 +87,19 @@
     });
 
     $("#generateButton").click(function() {
-        if (selectedDiagnosisID != -1) {
-            $.post("/edit/generatePatientForDiagnosis", {
-                diagnosisID: window.selectedDiagnosisID
-            }, function(data, status) {
-                var obj = JSON.parse(data);
-            });
-            loadPatientList();
-        }
+        $.post("/edit/generateRandomPatientForUser", {}, function(data, status) {
+            var pt = JSON.parse(data);
+            addPatientToList(pt.patientID, pt.patientName);
+        });
     });
+
 
     function loadPatientList() {
         $.get("/getPatientsForCurrentUser", function(data, status) {
             var obj = JSON.parse(data);
 
             $.each(obj, function(i, item) {
-                $('#patientTable > tbody:last').append("<tr id='patient" + item.patient_id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + item.patient_id + "</td><td>" + item.patient_name + "</td></tr>")
+                addPatientToList(item.patient_id, item.patient_name);
             });
 
             $(".clickableRowPatient").click(function() {
@@ -118,6 +115,22 @@
             });
         });
     };
+
+    function addPatientToList(patient_id, patient_name) {
+        $('#patientTable > tbody:last').append("<tr id='patient" + patient_id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + patient_id + "</td><td>" + patient_name + "</td></tr>");
+
+        $(".clickableRowPatient").click(function() {
+                $(".clickableRowPatient").attr('bgcolor', 'white');
+                $(this).attr('bgcolor', 'grey');
+                window.selectedPatientID = $(this).find('td.patientID').html();
+                $.post("/getPatientsBriefChart", {
+                    patientID: selectedPatientID
+                }, function(data, status) {
+                    window.selectedPatientCC = JSON.parse(data)[0].cc;
+                    $('#PatientChartBrief').text(selectedPatientCC);
+                });
+            });
+    }
 
     function loadUserName() {
         $.get("/user/getCurrentUserName", function(data, status) {

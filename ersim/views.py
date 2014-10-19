@@ -7,6 +7,7 @@ from flask import render_template
 from flask import flash, redirect, url_for
 from flask.ext.login import login_required, login_user, logout_user, current_user
 from ersim import user
+import json
 
 
 @app.route('/')
@@ -178,7 +179,11 @@ def viewPatientRoute():
 
 @app.route('/edit/generatePatientForDiagnosis', methods=['POST'])
 def generatePatientForDiagnosisRoute():
-	return edit.generatePatientForDiagnosis(request.form['diagnosisID'])
+	return json.dumps(edit.generatePatientForDiagnosis(request.form['diagnosisID']))
+
+@app.route('/edit/generateRandomPatientForUser', methods=['POST'])
+def generateRandomPatientForUserRoute():
+	return json.dumps(edit.generateRandomPatientForUser(current_user.uid))
 
 @app.route('/edit/deletePatient', methods=['POST'])
 def deletePatientRoute():

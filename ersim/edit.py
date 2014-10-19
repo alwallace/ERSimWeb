@@ -96,8 +96,15 @@ def generatePatientForDiagnosis(diagnosisID):
 			tempTRLinkID = random.choice(result2)[0]
 			commit_db('INSERT INTO ptr_links (patient_id, tr_link_id) VALUES (?, ?)', (patientID,tempTRLinkID))
 
-	response = [{"patientID":patientID}]
-	return json.dumps(response)
+	response = {"patientID":patientID, "patientName":patientName}
+	return response
+
+def generateRandomPatientForUser(userID):
+	diagnosisList = query_db("SELECT id FROM diagnosis", ())
+	result = generatePatientForDiagnosis(diagnosisList[random.randint(0, len(diagnosisList)-1)][0])
+	# add the patient to the user's patient list
+	commit_db("INSERT INTO user_patients (user_id, patient_id) VALUES (?,?)", (userID, result['patientID']))
+	return result
 
 def getResponsesForPatient(patientID):
 	response = []
