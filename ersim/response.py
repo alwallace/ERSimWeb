@@ -85,7 +85,9 @@ def getAssessment(userID, patientID):
 
 def getQuiz(userID, patientID):
 	response = []
-
+	results = query_db("SELECT quiz_materials_id, question, answer FROM quiz_materials, patients WHERE patients.patient_id=? AND quiz_materials.diagnosis_id=patients.diagnosis_id", (patientID,))
+	for row in results:
+		response.append({"quiz_materials_id":row[0], "question":row[1], "answer":row[2]})
 	return json.dumps(response)
 
 def getKnowledge(patientID):

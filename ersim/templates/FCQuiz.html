@@ -33,7 +33,19 @@
             </ul>
             <div id="User"></div>
         </div>
-        <div id="Playbox" class="width2"></div>
+        <div id="Playbox" class="width2">
+            <table width="300" id="quizTable" style="width:320px; float:left;">
+                <thead>
+                    <tr>
+                        <th width="200">Question</th>
+                        <th width="50"></th>
+                        <th width="200">Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -60,8 +72,23 @@ function loadUserName() {
     });
 };
 
+function loadQuiz() {
+    $.get("/getQuiz", function(data, status) {
+        var obj = JSON.parse(data);
+
+        $.each(obj, function(i, item) {
+            $('#quizTable > tbody:last').append("<tr id=" + item.quiz_materials_id + "><td class='questionItem'>" + item.question + "</td><td class='answerButton'>show</td><td class='answerItem'></td></tr>");
+            $(".answerButton").click(function() {
+            $(".answerButton").attr('bgcolor', 'white');
+            $(this).attr('bgcolor', 'grey');
+            $(this).find('#answer').text(item.answer);
+        });
+    });
+};
+
 $(document).ready(function($) {
     loadUserName();
+    loadQuiz();
 });
 
 function getParameterByName(name) {
