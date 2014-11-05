@@ -1,0 +1,78 @@
+Education: Myocarditis
+
+Common chief complaint:
+Nonpleuritic chest pain
+
+Differential:
+ * MI
+ * Esophageal spasm
+ * Cholelithiasis
+ * Pancreatitis
+ * Aortic dissection
+ * Chostochondritis
+ * Pneumonia
+ * Pulmonary embolism
+
+Patient History:
+ * Pain
+   * O - 
+   * P - 
+   * Q - 
+   * R - 
+   * S - 
+   * T - 
+   * A - 
+   * D - 
+   * A - dypsnea
+ * Feels feverish
+ * Recent (1-3 weeks ago) flu-like syndrome (fever, joint pain, malaise)
+ * Short of breath
+ * Ethanol use
+ * CO inhalation
+ * Cocaine use
+ * PmHx - Connective tissue disorders (SLE, scleroderma, sarcoidosis), vasculitis (kawasaki's disease), cancer, radiation treatment
+ * FmHx - Connective tissue disorders (SLE, scleroderma, sarcoidosis), vasculitis (kawasaki's disease) 
+
+Physical Exam:
+ * Blood Pressure - hypotension
+ * Cardiac
+   * Mild S1 sound
+   * Tachycardia
+   * Arrythmia
+   * S3 or S4
+   * New mitral regurgitation murmur
+   * Jugular venous distention
+ * Abdomen
+   * Hepatomegaly
+ * Extremities
+   * Peripheral edema
+
+Investigations:
+Labs:
+ * Troponins, CKMB - assess any heart damage
+ * LDH
+ * CMP - assess renal function
+ * ESR - initial to establish baseline, subsequently to follow progress of treatment
+ * CBC - looking for increased WBCs to help establish diagnosis
+ * Viral blood titers
+ * Cold agglutinin / ASO / Blood cultures
+ * Lyme titer - if in endemic area
+
+Imaging:
+ * EKG - determine if any myocardial damage, assess arrythmia
+ * Chest Xray - rule down other pathology
+ * Echocardiogram - assess ventricular function, dilatation
+ * Cardiac MRI - more accurate assessment of echocardiogram
+
+Management:
+
+Primary Intervention:
+ * Treat the underlying infection or toxic component based on cultures / titers / labs
+ * If patient is having heart failure
+   * Initiate diuretics, furosemide
+   * Initiate ACE inhibitor, lisinopril
+   * Na restriction diet
+ * If patient has an arrythmia
+   * Initiate procainamide to manage arrhythmia
+   * Initiate anticoagulation to prevent clot formation or extension, warfarin with heparin bridge
+ 

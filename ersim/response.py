@@ -1,8 +1,10 @@
 import sqlite3
 import json
+import os
 from flask import g
 from flask.ext.login import current_user
 from ersim import query_db, commit_db
+from ersim import app
 
 def generateResponse(patientID, triggerValue):
 	triggerValue = triggerValue.lower()
@@ -92,10 +94,12 @@ def getQuiz(userID, patientID):
 
 def getKnowledge(patientID):
 	response = []
-
+	knowledgeFile = open(app.config['KNOWLEDGE_FOLDER'] + query_db("SELECT value FROM diagnosis_edus, patients WHERE patient_id=? AND patients.diagnosis_id=diagnosis_edus.diagnosis_id", (patientID,), True)[0], 'r')
+	knowledge = ""
+	for line in knowledgeFile.readlines():
+		knowledge = knowledge + line
+	response.append({"knowledge":knowledge})
 	return json.dumps(response)
-
-
 
 def getDiagnosisList():
 	response = []

@@ -75,10 +75,10 @@ def getQuizRoute():
 def knowledgebaseRoute():
 	return render_template("FCKnowledgebase.html")
 
-@app.route('/getKnowledge')
+@app.route('/getKnowledge', methods=['POST'])
 @login_required
 def getKnowledgeRoute():
-	return response.getKnowledge(current_user.uid, request.form['patientID'])
+	return response.getKnowledge(request.form['patientID'])
 
 @app.route('/test')
 def testRoute():

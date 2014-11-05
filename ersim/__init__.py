@@ -17,7 +17,8 @@ app.config.update(dict(
     DEBUG=False,
     SECRET_KEY='\x977n\xfcrG4\x06\xed\xf0\xd3\'\x1dh"Q\xc4\xc0\n\xf0\xd9i_\xd4',
     USERNAME='admin',
-    PASSWORD='default'
+    PASSWORD='default',
+    KNOWLEDGE_FOLDER=os.path.join(app.root_path, 'extra/knowledge/')
 ))
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 

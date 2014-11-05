@@ -31,7 +31,9 @@
             </ul>
             <div id="User"></div>
         </div>
-        <div id="Playbox" class="width2"></div>
+        <div id="Playbox" class="width2">
+            <textarea readonly id="knowledgeText"></textarea>
+        </div>
     </div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -53,8 +55,18 @@ function loadUserName() {
     });
 };
 
+function loadKnowledge() {
+    $.post("getKnowledge", {patientID: getParameterByName("patientID")}, function(data, status) {
+        var obj = JSON.parse(data)
+
+        $("#knowledgeText").val(obj[0].knowledge)
+        $("#knowledgeText").scrollTop($("#knowledgeText")[0].scrollHeight);
+    });
+};
+
 $(document).ready(function($) {
     loadUserName();
+    loadKnowledge();
 });
 
 function getParameterByName(name) {

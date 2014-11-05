@@ -1,0 +1,81 @@
+Education: Acute Coronary Syndrome / Myocardial Infarction
+
+Common chief complaint:
+Nonpleuritic chest pain
+
+Differential:
+ * Aortic dissection
+ * Pulmonary embolism
+ * Myocarditis
+ * Costochondritis
+ * Acute cholecystitis
+ * Pancreatitis
+ * Esophageal spasm
+ * Pneumonia
+
+Patient History:
+ * Chest pain
+   * O - usually between 20 minutes to 1 hour
+   * P - substernal
+   * Q - crushing, pressure-like
+   * R - left arm, neck, jaw, back, shoulder, abdomen
+   * S - variable
+   * T - constant 
+   * A - not alleviated by NTG, worse with physical exertion
+   * D - not breathing
+   * A - dyspnea, diaphoresis, nausea, vomiting
+ * Recent angina
+ * Recent aspirin use
+ * Age greater than 65 years
+ * Tobacco use
+ * Cocaine use
+ * FmHx - CAD, HTN, hypercholesteremia, diabetes
+ * PmHx - coronary artery stenosis of greater than 50%
+
+Physical Exam:
+ * Blood pressure - examines blood volume and hemodynamic stability
+ * Cardiac exam
+   * New apical systolic murmur (mitral regurgitation 2/2 papillary muscle rupture)
+   * S3 or S4
+ * Pulmonary exam
+   * Rales
+
+Investigations:
+Labs:
+ * CMP - examines end organ ischemia with renal and liver function
+ * Troponins - examines heart damage
+ * CKMB - examines heart damage
+ * Urine toxins - determines history of cocaine use
+
+Imaging:
+ * EKG - determine the location of myocardial infarction, special attention to inferior wall MI
+ * Echocardiogram - examines left ventricular function
+ * Chest Xray - rule down other pathology (pneumonia, fractures, pneumomediastinum, etc.)
+
+Management:
+ * Calculate TIMI score
+ * Assess hemodynamics
+
+Primary Intervention:
+ * If hemodynamically unstable consider
+   * Dobutamine IV and Nitroglycerin if left ventricular failure but MAP is greater than 90
+   * Nitroprussive IV if left ventricular failure and MAP is less than 90
+   * Intra-aortic balloon pump if patient is in shock (see shock criteria)
+ * Immediate MONA (4mg IV morphine q10min as needed, 4L/min Oxygen nasal cannula, Nitroglycerin, 325mg PO Aspirin chewed)
+ * Fluid resuscitation if hypovolemic to improve diastolic filling
+ * Furosemide if hypervolemic to improve blood pressure and systolic function as well as coronary filling
+
+ * Rapid PCI - door to balloon time of less than 90 minutes.
+ * CABG - if severe triple vessel disease
+ * Fibrinolysis - if PCI is unavailable
+  
+ * Initiate metoprolol after acute event resolves but within 24 hours
+
+Secondary Intervention:
+ * Stop smoking
+ * HTN control with furosemide
+ * Cholesterol control with pravastatin
+ * Exercise for minimum of 30 min/day
+ * Weight loss
+ * Continued Beta Blockers with metoprolol
+ * ACE inhibitor for cardio/renal protection with captopril

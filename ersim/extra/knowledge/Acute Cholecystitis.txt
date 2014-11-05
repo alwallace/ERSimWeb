@@ -1,0 +1,45 @@
+Education: Acute Cholecystitis
+
+Common chief complaint:
+Right upper quadrant pain
+
+Differential:
+
+
+Patient History:
+ * Pain
+   * O - usually at night
+   * P - right upper quadrant
+   * Q - 
+   * R - back, right shoulder
+   * S - 
+   * T - lasts greater than 5 minutes up to 2 hours
+   * A - aggravated by food, especially fatty or spicy foods
+   * D - 
+   * A - fever, chills, nausea, vomiting
+ * 5 F's (female, fat, forty, fertile, feather for native american)
+ * Stool color tan or fatty, floats
+ * Urine color change
+ * Feverish
+ * Chills
+
+Physical Exam:
+ * Skin - jaundice
+ * Abdomen - RUQ tenderness, palpable mass
+
+Investigations:
+Labs:
+ * CMP - evaluate pancrease, liver and hydration status
+ * CBC - looking for increased WBCs often associated with cholecystitis
+ * Urine analysis - looking at color
+
+Imaging:
+ * Gallbladder ultrasound - looking for stones in gallbladder, neck and biliary tree, gallbladder wall thickening
+ * HIDA scan - assess for chronic cholecystitis
+ * MRI abdomen - more specific and sensitive exam after ultrasound
+
+Management:
+
+Primary Intervention:
+ * Call surgery for cholecystectomy evaluation
+ 

@@ -1,0 +1,75 @@
+Education: Acute Pancreatitis
+
+Common chief complaint:
+Epigastric or chest pain
+
+Differential:
+
+
+Patient History:
+ * Pain
+   * O - sudden
+   * P - 
+   * Q - 
+   * R - 
+   * S - 10/10
+   * T - gradually increasing over 20-30 minutes, stays constant after usually lasting 2-4 hours
+   * A - nothing alleviates the pain
+   * D - 
+   * A - dypsnea
+ * Age greater than 55 years
+ * History of scorpion bite
+ * Medications
+ * Recent trauma to abdomen or chest
+ * Pregnancy
+ * PmHx - recent history of ERCP, peptic ulcer disease, pancreas divisum, cancer
+
+Physical Exam:
+ * Blood Pressure - hypotension
+ * Fever
+ * Cardiac
+   * Tachycardia
+ * Pulmonary
+   * Decreased breath sounds 2/2 effusion
+   * Crackles 2/2 atelectasis
+ * Abdomen
+   * Hypoactive bowel sounds
+   * Epigastric tenderness, guarding
+   * Possible palpable mass if abscess is present
+   * Subcutaneous tender nodules if fat necrosis
+ * Neuro
+   * Confusion
+ * Skin
+   * Jaundice
+ * Special signs
+   * Chvostek + Trousseau signs if hypoCa2+
+   * Cullens sign if hemorrhagic pancreatitis
+   * Grey Turners sign if hemorrhagic pancreatitis
+
+Investigations:
+Labs:
+ * CMP - evaluate hydration status, special attention to Ca2+
+ * CBC - looking for increase in WBCs
+ * LDH
+ * Strict Ins and Outs
+ * Urine trypsinogen 2 - rapid screening for pancreatitis with abdominal pain, high sensitivity
+ * ABG - assess PaO2 and pH for lactic acidosis
+
+Imaging:
+ * Abdominal Xray
+ * Chest Xray - rule down other pathology in the chest
+ * Abdominal ultrasound - examine pancreas and biliary system, gallbladder
+ * CT or MRI abdomen - accurately determine pancreatic inflammation, stones, etc.
+
+Management:
+ * Use Ranson criteria for pancreatitis evaluation
+
+Primary Intervention:
+ * IV Fluids, normal saline
+ * Strict NPO
+ * NG tube placement and suction
+ * Morphine IV for pain
+ * Electrolyte replacement of Ca, Mg, K
+ * If patient is septic, demonstrated abscess or calculi then initiate antibiotics, ampicillin and cefotetan 5-7 days
+ * If gallstone perforation or abscess consult surgery for emergent intervention
+ 
