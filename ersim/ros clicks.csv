@@ -1,0 +1,226 @@
+constitution negative,202,31
+activity change positive,16,55
+activity change negative,229,56
+appetite change positive,16,74
+appetite change negative,234,76
+chills positive,15,97
+chills negative,228,96
+diaphoresis positive,15,120
+diaphoresis negative,231,121
+fatigue positive,17,142
+fatigue negative,229,142
+fever positive,14,164
+fever negative,230,166
+unexpected weight change positive,16,188
+unexpected weight change negative,230,187
+HEENT negative,204,212
+facial swelling positive,12,232
+facial swelling negative,235,233
+neck pain positive,17,254
+neck pain negative,231,254
+neck stiffness positive,17,277
+neck stiffness negative,227,278
+ear discharge positive,14,297
+ear discharge negative,232,295
+hearing loss positive,15,320
+hearing loss negative,231,320
+ear pain positive,13,343
+ear pain negative,229,343
+tinnitus positive,14,368
+tinnitus negative,230,367
+nosebleeds positive,14,385
+nosebleeds negative,231,388
+congestion positive,16,408
+congestion negative,229,409
+rhinorrhea positive,14,430
+rhinorrhea negative,231,431
+postnasal drip positive,17,454
+postnasal drip negative,230,452
+sneezing positive,15,475
+sneezing negative,230,476
+sinus pressure positive,16,497
+sinus pressure negative,231,498
+dental problem positive,15,518
+dental problem negative,228,518
+drooling positive,16,540
+drooling negative,229,538
+mouth sores positive,17,563
+mouth sores negative,229,559
+sore throat positive,14,585
+sore thorat negative,228,586
+trouble swallowing positive,14,606
+trouble swallowing negative,231,607
+voice change positive,14,629
+voice change negative,230,627
+eyes negative,435,33
+eye discharge positive,260,50
+eye discharge negative,477,50
+eye itching positive,260,73
+eye itching negative,474,74
+eye pain positive,259,93
+eye pain negative,472,91
+eye redness positive,259,119
+eye redness negative,476,120
+photophobia positive,259,137
+photophobia negative,473,136
+visual disturbance positive,258,160
+visual disturbance negative,472,163
+respiratory negative,433,186
+apnea positive,260,205
+apnea negative,476,209
+chest tightness positive,259,227
+chest tightness negative,472,228
+choking positive,259,249
+choking negative,473,246
+cough positive positive,,259,274
+cough negative negative,473,269
+shortness of breath positive,260,293
+shortness of breath negative,473,296
+stridor positive,260,314
+stridor negative,477,316
+wheezing positive,259,339
+wheezing negative,475,336
+cardiovascular negative,432,364
+chest pain positive,258,380
+chest pain negative,475,381
+leg swelling positive,261,402
+leg swelling negative,475,405
+palpitations positive,260,424
+palpitations negative,472,422
+GI negative,435,448
+abdominal distention positive,254,470
+abdominal distention negative,474,471
+abdominal pain positive,256,490
+abdominal pain negative,475,491
+anal bleeding positive,259,514
+anal bleeding negative,476,514
+blood in stool positive,261,537
+blood in stool negative,473,533
+constipation positive,258,556
+constipation negative,474,558
+diarrhea positive,260,577
+diarrhea negative,477,580
+nausea positive,262,601
+nausea negative,474,600
+rectal pain positive,261,624
+rectal pain negative,473,622
+vomiting positive,259,646
+vomiting negative,474,646
+endocrine negative,671,32
+cold intolerance positive,502,52
+cold intolerance negative,715,54
+heat intolerance positive,503,74
+heat intolerance negative,716,73
+polydipsia positive,504,93
+polydipsia negative,716,94
+polyphagia positive,501,120
+polyphagia negative,717,119
+polyuria positive,504,137
+polyuria negative,721,138
+GU negative,667,163
+difficulty urinating positive,504,185
+difficulty urinating negative,718,186
+dyspareunia positive,504,207
+dyspareunia negative,713,204
+dysuria positive,506,227
+dysuria negative,719,226
+enuresis positive,503,249
+enuresis negative,717,249
+flank pain positive,505,273
+flank pain negative,719,268
+frequency positive,504,297
+frequency negative,720,296
+genital sore positive,504,315
+genital sore negative,715,314
+hematuria positive,505,336
+hematuria negative,718,336
+menstrual problem positive,503,360
+menstrual problem negative,718,360
+pelvic pain positive,503,380
+pelvic pain negative,717,383
+urgency positive,504,403
+urgency negative,720,403
+urine decreased positive,503,423
+urine decreased negative,717,425
+vaginal bleeding positive,503,447
+vaginal bleeding negative,719,450
+vaginal discharge positive,503,472
+vaginal discharge negative,717,469
+vaginal pain positive,503,489
+vaginal pain negative,717,488
+musculoskeletal negative,668,517
+arthralgias positive,503,536
+arthralgias negative,716,535
+back pain positive,505,560
+back pain negative,715,557
+gait problem positive,504,580
+gait problem negative,720,582
+joint swelling positive,504,604
+joint swelling negative,718,600
+myalgias positive,505,624
+myalgias negative,717,622
+skin negative,669,648
+skin color change positive,505,668
+skin color change negative,718,667
+skin pallor positive,504,688
+skin pallor negative,715,690
+rash positive,505,715
+rash negative,716,708
+wound positive,504,732
+wound negative,721,733
+allerg/immunology negative,911,31
+env allergies positive,748,54
+env allergies negative,961,55
+food allergies positive,745,74
+food allergies negative,962,73
+immunocompromised positive,748,94
+immunocompromised negative,960,95
+neurological negative,913,117
+dizziness positive,745,139
+dizziness negative,960,139
+facial asymmetry positive,746,161
+facial asymmetry negative,959,161
+headaches positive,748,184
+headaches negative,966,184
+light headedness positive,745,207
+light headedness negative,961,205
+numbness positive,752,227
+numbness negative,958,226
+seizures positive,746,248
+seizures negative,960,251
+speech difficulty positive,745,271
+speech difficulty negative,963,270
+syncope positive,747,293
+syncope negative,959,289
+tremors positive,746,315
+tremors negative,958,316
+weakness positive,748,340
+weakness negative,958,334
+hematologic negative,910,361
+adenopathy positive,744,383
+adenopathy negative,962,383
+easy bruising positive,746,404
+easy bruising negative,962,404
+psychiatric negative,909,430
+agitation positive,746,449
+agitation negative,961,450
+behavior problem positive,748,468
+behavior problem negative,961,470
+confusion positive,748,488
+confusion negative,962,487
+decreased concentration positive,749,512
+decreased concentration negative,962,510
+dysphoric mood positive,747,534
+dysphoric mood negative,957,531
+hallucinations positive,745,553
+hallucinations negative,959,557
+hyperactive positive,746,576
+hyperactive negative,961,579
+nervous/anxious positive,746,599
+nervous/anxious negative,959,596
+self injury positive,747,624
+self injury negative,960,619
+sleep disturbance positive,746,644
+sleep disturbance negative,963,644
+suicidal ideas positive,746,667
+suicidal ideas negative,961,668

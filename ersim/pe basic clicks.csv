@@ -1,0 +1,101 @@
+well developed,19,80
+well nourished,127,79
+diaphoretic positive,24,98
+diaphoretic negative,105,95
+distressed positive,132,100
+distressed negative,208,103
+normocephalic,22,149
+atraumatic,138,148
+right ext ear nl,22,166
+left ext ear nl,135,168
+oropharynx clear & moist,22,184
+nose nl,166,184
+oropharyngeal exudate positive,24,207
+oropharyngeal exudate negative,177,204
+PERRL,23,259
+conj nl,82,258
+EOM nl,151,259
+right eye discharge positive,25,295
+right eye discharge negative,100,293
+left eye discharge positive,135,293
+left eye discharge negative,206,295
+scleral icterus positive,60,317
+scleral icterus negative,177,314
+neck ROM nl,22,368
+neck supple,85,367
+thyromegaly positive,25,385
+thyromegaly negative,200,386
+tracheal deviation positive,24,414
+tracheal deviation negative,203,408
+stridor positive,24,435
+stridor negative,99,435
+JVD positive,126,434
+JVD negative,199,434
+cervical adenopathy positive,24,459
+cervical adenopathy negative,200,458
+cardiovascular normal rate,248,77
+cardiovascular regular rhythm,327,76
+heart sounds nl,247,94
+intact distal pulses,247,114
+heart murmur positive,247,132
+heart murmur negative,316,133
+heart rub positive,346,133
+heart rub negative,404,136
+heart gallop positive,252,156
+heart gallop negative,320,156
+pulmonary effort nl,249,207
+breath sounds nl,314,204
+respiratory distress positive,253,224
+respiratory distress negative,399,226
+wheezes positive,253,248
+wheezes negative,396,246
+rales positive,253,265
+rales negative,399,269
+chest tenderness positive,250,288
+chest tenderness negative,397,289
+abdomen soft,250,339
+bowel sounds nl,320,338
+abdominal distension positive,251,361
+abdominal distension negative,401,363
+abdominal tenderness positive,256,384
+abdominal tenderness negative,400,390
+abdominal rebound positive,252,409
+abdominal rebound negative,398,406
+abdominal guarding positive,253,432
+abdominal guarding negative,398,435
+abdominal mass positive,252,458
+abdominal mass negative,398,457
+vagina nl,446,80
+uterus nl,446,97
+guaiac result positive,447,112
+guaiac result negative,593,112
+vaginal discharge positive,448,131
+vaginal discharge negative,593,131
+normal ROM,446,188
+edema positive,452,205
+edema negative,543,208
+msk tenderness positive,453,233
+msk tenderness negative,546,231
+alert,447,283
+oriented,498,284
+DTRs nl,589,285
+cranial nerve deficit positive,447,306
+cranial nerve deficit negative,584,305
+abnl coordination positive,446,331
+abnl coordination negative,586,328
+abnl DTRs positive,450,355
+abnl DTRs negative,538,357
+abnl tone positive,562,356
+abnl tone negative,650,354
+skin warm,447,405
+skin dry,506,405
+skin erythema positive,449,424
+skin erythema negative,534,423
+skin rash positive,450,444
+skin rash negative,534,444
+skin pale positive,450,467
+skin pale negative,536,467
+mood/affect nl,571,405
+behavior nl,571,424
+thought content nl,571,446
+judgement nl,570,468

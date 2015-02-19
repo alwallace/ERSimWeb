@@ -109,8 +109,6 @@ def getPatientsBriefChartRoute():
 def getCurrentUserNameRoute():
 	return response.getCurrentUserName()
 
-
-
 @app.route('/settings')
 @login_required
 def settingsRoute():
@@ -131,6 +129,14 @@ def logoutRoute():
 @login_required
 def userGetNameRoute():
 	user.getName()
+
+@app.route('/edit/case', methods=['GET', 'POST'])
+@login_required
+def editCase():
+	if request.method == 'GET':
+		return render_template("edit_case.html")
+	elif request.method == 'POST':
+		return edit.setCase(request.form)
 
 @app.route('/edit/getTriggerList')
 @login_required

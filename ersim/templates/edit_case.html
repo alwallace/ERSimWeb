@@ -1,0 +1,71 @@
+<html>
+
+<body>
+
+<h2>CC</h2>
+<textarea id="cc" rows="1" cols="50"></textarea>
+
+<h2>HPI</h2>
+<textarea id="hpi" rows="5" cols="50"></textarea>
+
+<h2>ROS</h2>
+<textarea id="ros" rows="10" cols="50"></textarea>
+
+<h2>PE</h2>
+<textarea id="pe" rows="10" cols="50"></textarea>
+
+<h2>LABS</h2>
+<textarea id="labs" rows="5" cols="50"></textarea>
+
+<h2>IMAGING</h2>
+<textarea id="imaging" rows="5" cols="50"></textarea>
+
+<h2>DDX</h2>
+<textarea id="ddx" rows="5" cols="50"></textarea>
+
+<h2>ORDERS</h2>
+<textarea id="orders" rows="5" cols="50"></textarea>
+
+<h2>INTERVENTIONS</h2>
+<textarea id="interventions" rows="5" cols="50"></textarea>
+
+<hr>
+<button id='save_button' type='button'>Save</button>
+</body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+var caseID = getParameterByName("caseID");
+
+$(document).ready(function($) {
+    $("#save_button").click(function() {
+        $.post("/edit/case", {
+        		caseID: caseID,
+        		cc: $("#cc").val(),
+        		hpi: $("#hpi").val(),
+                ros: $("#ros").val(),
+                pe: $("#pe").val(),
+                labs: $("#labs").val(),
+                imaging: $("#imaging").val(),
+                ddx: $("#ddx").val(),
+                orders: $("#orders").val(),
+                interventions: $("#interventions").val()
+            },
+            function(data, status) {
+                var obj = JSON.parse(data)
+                alert(obj)
+            }
+        );
+    });
+});
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+</script>
+
+</html>

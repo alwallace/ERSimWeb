@@ -120,16 +120,16 @@
         $('#patientTable > tbody:last').append("<tr id='patient" + patient_id + "' class='clickableRowPatient' style='cursor:pointer;'><td class='patientID'>" + patient_id + "</td><td>" + patient_name + "</td></tr>");
 
         $(".clickableRowPatient").click(function() {
-                $(".clickableRowPatient").attr('bgcolor', 'white');
-                $(this).attr('bgcolor', 'grey');
-                window.selectedPatientID = $(this).find('td.patientID').html();
-                $.post("/getPatientsBriefChart", {
-                    patientID: selectedPatientID
-                }, function(data, status) {
-                    window.selectedPatientCC = JSON.parse(data)[0].cc;
-                    $('#PatientChartBrief').text(selectedPatientCC);
-                });
+            $(".clickableRowPatient").attr('bgcolor', 'white');
+            $(this).attr('bgcolor', 'grey');
+            window.selectedPatientID = $(this).find('td.patientID').html();
+            $.post("/getPatientsBriefChart", {
+                patientID: selectedPatientID
+            }, function(data, status) {
+                window.selectedPatientCC = JSON.parse(data)[0].cc;
+                $('#PatientChartBrief').text(selectedPatientCC);
             });
+        });
     }
 
     function loadUserName() {
