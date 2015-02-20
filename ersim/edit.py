@@ -71,6 +71,25 @@ def addTriggerReponseLinkForCase(caseID, triggerID, responseID):
 		response.append(lastid_db())
 	return json.dumps(response)
 
+def addTriggerResponseForCase(caseID, trigger, response):
+	tresult = query_db("SELECT trigger_id FROM triggers WHERE trigger=?", (trigger,))
+	rresult = query_db("SELECT response_id FROM responses WHERE response=?", (response,))
+	# if the trigger or response was not found in the db, then create it and get the ID
+	triggerID = -1
+	if tresult == None:
+		commit_db("INSERT INTO triggers (trigger) VALUES (?)", (trigger,))
+		triggerID = lastid_db()
+	else:
+		triggerID = tresult[0][0]
+	responseID = -1
+	if rresult == None:
+		commit_db("INSERT INTO response (response) VALUES (?)", (response,))
+		responseID = lastid_db()
+	else:
+		responseID = rresult[0][0]
+
+	addTriggerReponseLinkForCase(caseID, triggerID, responseID)
+
 def removeResponseForDiagnosis(triggerID, diagnosisID, responseID):
 	result = query_db("SELECT id FROM tr_links WHERE trigger_id=? AND response_id=?", (triggerID, responseID))
 	commit_db('DELETE FROM dtr_links WHERE diagnosis_id=? AND tr_link_id=?', ("1", result[0][0]))
@@ -136,26 +155,33 @@ def userNote(userID, patientID, note):
 def setCase(form):
 	# load the case from ID if available, else create one
 	caseID = form['caseID']
-	result = query_db("SELECT ")
+	if caseID == -1:
+		commit_db("INSERT INTO cases (case_id) VALUES (NULL)", ())
+		caseID = lastid_db()
+
+	# get the trigger list and make a dictionary
+	tlist = getTriggerList()
+	triggerToID = {}
+	for item in tlist:
+		triggerToID[item['trigger']] = item['id']
 
 	# edit the CC
-
+	addTriggerResponseForCase(caseID, "cc", form['cc'])
 
 	# edit the HPI
+	addTriggerResponseForCase(caseID, "hpi", form['hpi'])
 
 	# edit the ROS
 	rosList = form['ros'].split('\n')
 	for item in rosList:
 		value, sx = item.split(' ', 1)
-
-		print(value + " of " + sx)
+		addTriggerResponseForCase(caseID, sx, value)
 
 	# edit the PE
 	peList = form['pe'].split('\n')
 	for item in peList:
 		value, sign = item.split(' ', 1)
-
-		print(value + " of " + sign)
+		addTriggerResponseForCase(caseID, sign, value)
 
 	# edit the labs
 	labList = form['labs'].split('\n')
