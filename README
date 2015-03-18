@@ -1,0 +1,8 @@
+You need these:
+Flask
+Flask-Login
+
+To install requisites on OSX:
+1) sudo easy_install pip
+2) sudo pip install Flask
+3) sudo pip install flask-login
