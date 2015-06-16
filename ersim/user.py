@@ -30,7 +30,7 @@ class User():
 		return False
 
 	def get_id(self):
-		return unicode(self.uid)
+		return str(self.uid)
 
 	def __repr__(self):
 		return '<User ' + self.name + '>'

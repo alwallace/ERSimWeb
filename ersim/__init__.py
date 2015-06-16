@@ -23,7 +23,7 @@ app.config.update(dict(
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 def connect_db():
-    print app.config['DATABASE']
+    print(app.config['DATABASE'])
     rv = sqlite3.connect(app.config['DATABASE'])
     rv.row_factory = sqlite3.Row
     return rv
