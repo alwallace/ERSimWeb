@@ -5,16 +5,17 @@ from flask import g
 from flask.ext.login import current_user
 from ersim import query_db, commit_db
 from ersim import app
+from ersim import code_module_util
 
 def generateResponse(patientID, triggerValue):
 	triggerValue = triggerValue.lower()
-	responseText = "** Please ask a question (history, physical exam, etc.) with '?' [ex: 'pain?' will ask the patient if they have pain] or perform an action (medications, lab, imaging, etc.) with '.' [ex: '.cbc' will place an order for a CBC] **"
+	responseText = "** Please ask a question (history, physical exam, etc.) with '?' [ex: '?pain' will ask the patient if they have pain] or perform an action (medications, lab, imaging, etc.) with '.' [ex: '.cbc' will place an order for a CBC] **"
 
 	responseMedia = ""
 
 	# if its a request for response (ends with ?)
-	if triggerValue.endswith('?'):
-		result = query_db('SELECT response, media_id, tr_links.trigger_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger=?', (patientID, triggerValue[:-1]), True)
+	if triggerValue.startswith('?'):
+		result = query_db('SELECT response, media_id, tr_links.trigger_id FROM responses, tr_links, ptr_links, triggers WHERE responses.id=tr_links.response_id AND tr_links.id=ptr_links.tr_link_id AND ptr_links.patient_id=? AND tr_links.trigger_id=triggers.id AND triggers.trigger=?', (patientID, triggerValue[1:]), True)
 
 		if result is None:
 			responseText = "I do not want to answer that."
@@ -29,10 +30,11 @@ def generateResponse(patientID, triggerValue):
 
 	# if its a request to perform an action (starts with .)
 	elif triggerValue.startswith('.'):
-		# check if it is a valid action
+		# check if it is an existing action
 		tempActionID = query_db('SELECT id FROM actions WHERE name=?', (triggerValue[1:],), True)
 		if tempActionID is not None:
 			tempActionID = tempActionID[0]
+			# check if this action is available at this time
 
 			# check to see if the user already did the action so we don't do it again
 			tempUserAction = query_db('SELECT user_action_id FROM user_actions WHERE user_id=? AND action_id=? and patient_id=?', (1, tempActionID, patientID), True)

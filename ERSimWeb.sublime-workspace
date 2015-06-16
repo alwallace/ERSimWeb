@@ -7,6 +7,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "ersim/templates/FCInterview.html",
+			"settings":
+			{
+				"buffer_size": 5003,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -35,7 +43,9 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/alex/Workspace/ERSimWeb"
+		"/Users/alex/Workspace/Project-ERSimWeb",
+		"/Users/alex/Workspace/Project-ERSimWeb/ersim",
+		"/Users/alex/Workspace/Project-ERSimWeb/ersim/templates"
 	],
 	"file_history":
 	[
@@ -73,8 +83,39 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "ersim/templates/FCInterview.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5003,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2102,
+								2113
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1470.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
